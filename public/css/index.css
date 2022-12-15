@@ -1,0 +1,141 @@
+/*--------------枠-------------*/
+body {
+  background-color: #EEEEEE;
+}
+
+.container{
+  width: 960px;
+  margin:30px auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex{
+  display: flex;
+}
+
+.search{
+  width:50%;
+  height:40px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  border: 2px;
+  box-shadow: 2px 2px 3px 2px #aaa;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.select-css{
+  -webkit-appearance: none;
+  appearance: none;
+  border:none;
+  outline: none;
+  padding:5px;
+  padding-right:40px;
+  margin:8px;
+  font-size: small;
+  border-right:#ECECEC 1.5px solid;
+  background-image: url('../jpg/appearance.jpg');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 15px 13px;
+}
+
+.search-text{
+  border: none;
+  outline: none;
+  padding: 5px;
+  padding-right: 40px;
+  padding-left:25px;
+  margin: 8px;
+  margin-left:0px;
+  background-image: url('../jpg/search.jpg');
+  background-position: left 0px center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+}
+
+
+.select-wrap{
+  position: relative;
+}
+
+
+
+
+/*--------------テキスト-------------*/
+.title{
+  font-size: 30px;
+  color: #305DFF;
+  font-family:'Segoe UI';
+}
+
+
+
+
+
+/*--------------位置-------------*/
+.center{
+line-height: 40px;
+}
+
+.ml0{
+  margin-left:0px;
+}
+.ml20{
+  margin-left: 20px;
+}
+
+
+
+
+
+
+/*--------------ボタン-------------*/
+.btn{
+  width:40px;
+  height: 40px;
+  background-color: #305DFF;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  box-shadow: 2px 2px 3px 2px #aaa;
+}
+
+.hamburger {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 20px;
+  height: 1px;
+  background: #EEEEEE;
+}
+.hamburger::before, .hamburger::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 5px;
+  height: 1px;
+  background: #EEEEEE;
+}
+.hamburger::before {
+  margin-top: 8px;
+  transition: all 0.2s;
+  }
+
+.hamburger::after {
+  margin-top: -9px;
+  width:10px;
+  transition: all 0.2s;
+}
+
+.btn:hover .hamburger::after,.btn:hover .hamburger::before{
+  width:20px;
+  transition: all 0.2s;
+}
