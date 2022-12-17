@@ -4,9 +4,21 @@ body {
 }
 
 .container{
-  width: 960px;
+  width: 85vw;
   margin:30px auto;
 }
+
+.w25 {
+  width: 25%
+}
+
+.w50{
+  width:50%;
+}
+.w90{
+  width:90%;
+}
+
 
 .nav {
   display: flex;
@@ -58,11 +70,123 @@ body {
   background-size: 15px 15px;
 }
 
-
 .select-wrap{
   position: relative;
 }
 
+.shop-index-wrap{
+  margin-top:30px;
+}
+
+.card {
+  width: 20vw;
+  margin-bottom: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 3px 2px #aaa;
+  border-radius: 10px;
+}
+
+.card_img img{
+  width: 100%;
+  height:20%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.card_content {
+  padding: 15px 25px;
+}
+
+.blue-btn{
+  font-size:small;
+  color: #fff;
+  margin-top: 15px;
+  padding: 5px;
+  background-color: #305DFF;
+  border-radius: 5px;
+  border: none;
+  transition: 0.2s;
+}
+.blue-btn:hover{
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.card_content-ttl {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.card_content_tag {
+  font-size: small;
+}
+
+.card_content_tag_item {
+  display: inline-block;
+}
+
+.card_content_tag_date {
+  margin-left: 20px;
+}
+
+.detail-wrap{
+  margin-top: -40px;
+  width:47%;
+  height:90vh;
+}
+
+.reserve-wrap{
+  margin-top:-40px;
+  width: 47%;
+  height:90vh;
+  background-color: #305DFF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px 2px #aaa;
+}
+
+.shop-image img{
+  width: 100%;
+}
+
+.login-wrap{
+  margin: 100px auto auto auto;
+  width: 40%;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px 2px #aaa;
+}
+
+.login-back{
+  background-color: #305DFF;
+  border-radius: 5px 5px 0 0;
+  line-height:40px;
+  padding-left: 20px;
+}
+
+input[type=email],
+input[type=password] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 3px;
+  width: 100%;
+  color: inherit;
+  font-family: inherit;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid;
+}
+
+input[type=email]:focus,
+input[type=password]:focus {
+  outline: none;
+}
 
 
 
@@ -72,24 +196,78 @@ body {
   color: #305DFF;
   font-family:'Segoe UI';
 }
-
+.shop-title{
+  font-size: 25px;
+}
+.small{
+  font-size: small;
+}
+.f-large{
+  font-size: large;
+}
+.f-c-white{
+  color:#FFFFFF;
+}
 
 
 
 
 /*--------------位置-------------*/
-.center{
+.lh40{
 line-height: 40px;
+}
+.lh30 {
+  line-height: 30px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mt30 {
+  margin-top: 30px;
+}
+.mt40{
+  margin-top:40px;
+}
+.mt100{
+  margin-top:100px;
 }
 
 .ml0{
   margin-left:0px;
 }
+.ml10 {
+  margin-left: 10px;
+}
 .ml20{
   margin-left: 20px;
 }
+.mr10{
+  margin-right:10px;
+}
 
+.p20{
+  padding:20px;
+}
+.pt5{
+  padding-top:5px;
+}
 
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-end {
+  display: flex;
+  justify-content:flex-end;
+}
+
+.email-icon {
+  width: 30px;
+  margin-right: 10px;
+}
 
 
 
@@ -139,3 +317,69 @@ line-height: 40px;
   width:20px;
   transition: all 0.2s;
 }
+
+
+input[type=checkbox] {
+  display: none;
+}
+
+input:checked+.heart::before, 
+input:checked+.heart::after {
+  background: #FF0000
+}
+input:hover+.heart::before,
+input:hover+.heart::after{
+  background: #FF0000;
+  transition: 0.2s
+}
+
+.heart {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-top:15px;
+  
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 50%;
+  height: 80%;
+  background: #EEEEEE;
+  border-radius: 15px 15px 0 0;
+  display: block;
+  position: absolute;
+}
+
+.heart::before {
+  transform: rotate(-45deg);
+  left: 14%;
+}
+
+.heart::after {
+  transform: rotate(45deg);
+  right: 14%;
+}
+
+.back-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  box-shadow: 2px 2px 3px 2px #aaa;
+}
+.back-btn:after{
+  content: "<";
+  font-weight: bold;
+  position: absolute;
+  left:8px;
+  transform: translateY(50%);
+}
+
+
+
+
+

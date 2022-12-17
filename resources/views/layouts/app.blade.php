@@ -7,7 +7,7 @@
         <meta name="application-name" content="Application">
         <title>Rese</title>
         <link rel="stylesheet" href="css/reset.css">
-        @yield("css")
+        @yield('css')
     </head>
     <body>
         @yield('main')
