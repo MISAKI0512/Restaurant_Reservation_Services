@@ -17,7 +17,9 @@
       <div class="select-wrap">
         <select name="area" class="select-css">
           <option hidden>All area</option>
-          <option value="1">東京都</option>
+          @foreach(config('pref') as $pref_id => $name)
+          <option value="{{ $pref_id }}">{{ $name }}</option>
+          @endforeach
         </select>
       </div>
       <div class="select-wrap">

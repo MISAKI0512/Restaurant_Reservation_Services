@@ -4,19 +4,28 @@ body {
 }
 
 .container{
-  width: 85vw;
+  width: 80vw;
   margin:30px auto;
 }
 
 .w25 {
   width: 25%
 }
+.w30{
+  width:30%;
+}
 
 .w50{
   width:50%;
 }
+.w80 {
+  width: 80%;
+}
 .w90{
   width:90%;
+}
+.w100{
+  width:100% ;
 }
 
 
@@ -134,17 +143,18 @@ body {
 
 .detail-wrap{
   margin-top: -40px;
-  width:47%;
+  width:45%;
   height:90vh;
 }
 
 .reserve-wrap{
   margin-top:-40px;
-  width: 47%;
+  width: 45%;
   height:90vh;
   background-color: #305DFF;
   border-radius: 10px;
   box-shadow: 2px 2px 3px 2px #aaa;
+  position: relative;
 }
 
 .shop-image img{
@@ -186,6 +196,48 @@ input[type=password] {
 input[type=email]:focus,
 input[type=password]:focus {
   outline: none;
+}
+
+.reserve-date{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding:5px;
+}
+
+.reserve-time {
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  margin-right: 0px;
+  background-image: url('../jpg/appearance.jpg');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 15px 13px;
+  width:98%;
+}
+.reserve-time::-webkit-calendar-picker-indicator {
+  background: none;
+}
+
+.reserve-number {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  margin-right: 0px;
+  background-image: url('../jpg/appearance.jpg');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 15px 13px;
+}
+
+.reserve-form{
+  width:90%;
+  margin: 20px auto;
 }
 
 
@@ -379,7 +431,17 @@ input:hover+.heart::after{
   transform: translateY(50%);
 }
 
-
+.reserve-btn{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height:50px;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  background-color: #0538FF;
+  color:#FFFFFF;
+  font-size: large;
+}
 
 
 
