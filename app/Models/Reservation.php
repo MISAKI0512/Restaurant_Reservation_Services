@@ -18,12 +18,12 @@ class Reservation extends Model
         'start_at',
     ];
 
-    public function shop()
+    public function shops()
     {
         return $this->belongsTo(Shop::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

@@ -16,7 +16,9 @@ class Shop extends Model
     protected $fillable = [
         'name',
         'description',
-        'image_url'
+        'image_url',
+        'area_id',
+        'genre_id'
     ];
 
     public function area()
@@ -34,7 +36,7 @@ class Shop extends Model
         return $this->hasmany(Like::class);
     }
 
-    public function reservation()
+    public function reservations()
     {
         return $this->hasmany(Reservation::class);
     }

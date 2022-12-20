@@ -17,15 +17,17 @@
       <div class="select-wrap">
         <select name="area" class="select-css">
           <option hidden>All area</option>
-          @foreach(config('pref') as $pref_id => $name)
-          <option value="{{ $pref_id }}">{{ $name }}</option>
+          @foreach($areas as $area)
+          <option value="{{ $area->id }}">{{ $area->name }}</option>
           @endforeach
         </select>
       </div>
       <div class="select-wrap">
         <select name="genre" class="select-css ml0">
           <option hidden>All genre</option>
-          <option value="1">焼肉</option>
+          @foreach($genres as $genre)
+          <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+          @endforeach
         </select>
       </div>
       <div class="select-wrap">
@@ -34,21 +36,23 @@
     </div>
   </nav>
   <div class="shop-index-wrap">
+    @foreach($shops as $shop)
     <div class="card">
       <div class="card_img">
-        <img src="https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg" alt="card">
+        <img src="{{ $shop->image_url }}" alt="card">
       </div>
       <div class="card_content">
-        <h2 class="card_content-ttl">仙人</h2>
+        <h2 class="card_content-ttl">{{ $shop->name }}</h2>
         <span class="card_content_tag">
-          <p class="card_content_tag_item">#東京都</p>
-          <p class="card_content_tag_item">#寿司</p>
+          <p class="card_content_tag_item">#{{ $shop->area->name }}</p>
+          <p class="card_content_tag_item">#{{ $shop->genre->name }}</p>
         </span><br>
         <div class="flex justify-between">
-          <button class="blue-btn w50" type="submit">詳しく見る</button>
+          <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->id]) }}" class="f-c-white">詳しく見る</a></button>
           <input type="checkbox" name="like" value="1" id="like"> <label for="like" class="heart"></label>
         </div>
       </div>
     </div>
+    @endforeach
   </div>
 </div>

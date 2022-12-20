@@ -14,11 +14,11 @@ class Area extends Model
     ];
 
     protected $fillable = [
-        'name',
+        'name'
     ];
 
-    public function shop()
+    public function shops()
     {
-        return $this->hasone(Shop::class);
+        return $this->hasmany(Shop::class);
     }
 }

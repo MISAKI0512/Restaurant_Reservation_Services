@@ -17,8 +17,8 @@ class Genre extends Model
         'name'
     ];
 
-    public function shop()
+    public function shops()
     {
-        return $this->hasone(Shop::class);
+        return $this->hasmany(Shop::class);
     }
 }

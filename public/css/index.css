@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+}
+
 /*--------------枠-------------*/
 body {
   background-color: #EEEEEE;
@@ -85,10 +89,13 @@ body {
 
 .shop-index-wrap{
   margin-top:30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card {
-  width: 20vw;
+  width: 24%;
   margin-bottom: 30px;
   background-color: #FFFFFF;
   box-shadow: 2px 2px 3px 2px #aaa;
@@ -97,7 +104,7 @@ body {
 
 .card_img img{
   width: 100%;
-  height:20%;
+  height:50%;
   object-fit: cover;
   border-radius: 10px 10px 0 0 ;
 }
@@ -107,9 +114,8 @@ body {
 }
 
 .blue-btn{
-  font-size:small;
+  font-size:14px;
   color: #fff;
-  margin-top: 15px;
   padding: 5px;
   background-color: #305DFF;
   border-radius: 5px;
@@ -117,14 +123,14 @@ body {
   transition: 0.2s;
 }
 .blue-btn:hover{
-  font-weight: bold;
+  letter-spacing: 0.1em;
   transition: 0.2s;
 }
 
 .card_content-ttl {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 
 }
@@ -135,6 +141,7 @@ body {
 
 .card_content_tag_item {
   display: inline-block;
+  font-size: 18px;
 }
 
 .card_content_tag_date {
@@ -375,7 +382,7 @@ input[type=checkbox] {
   display: none;
 }
 
-input:checked+.heart::before, 
+/*input:checked+.heart::before, 
 input:checked+.heart::after {
   background: #FF0000
 }
@@ -383,13 +390,13 @@ input:hover+.heart::before,
 input:hover+.heart::after{
   background: #FF0000;
   transition: 0.2s
-}
+}*/
 
 .heart {
   width: 30px;
   height: 30px;
   position: relative;
-  margin-top:15px;
+  margin-top:20px;
   
 }
 
