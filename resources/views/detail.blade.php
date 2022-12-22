@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
 @section('main')
@@ -17,17 +17,17 @@
   <div class="flex justify-between">
     <div class="detail-wrap">
       <div class="flex mt100">
-        <div class="back-btn"></div>
-        <h2 class="shop-title ml10 pt5">仙人</h2>
+        <button class="back-btn" onclick="history.back()"></button>
+        <h2 class="shop-title ml10 pt5">{{ $shops->name }}</h2>
       </div>
       <div class="shop-image mt30">
-        <img src="https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg" alt="card">
+        <img src="{{ $shops->image_url }}" alt="card">
       </div>
       <div class="flex shop-tag mt20">
-        <p class="small mr10">#東京都</p>
-        <p class="small mr10">#寿司</p>
+        <p class="medium mr10">#{{ $shops->area->name }}</p>
+        <p class="medium mr10">#{{ $shops->genre->name }}</p>
       </div>
-      <p class="small mt20 w90">料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。</p>
+      <p class="medium mt20 w100 lh20">{{ $shops->description }}</p>
     </div>
     <div class="reserve-wrap">
       <div class="reserve-form">
@@ -46,6 +46,7 @@
       </div>
       <div>
         <button class="reserve-btn">予約する</button>
+      </div>
     </div>
   </div>
 </div>

@@ -51,6 +51,7 @@ body {
   box-shadow: 2px 2px 3px 2px #aaa;
   display: flex;
   justify-content: flex-start;
+  padding: 5px;
 }
 
 .select-css{
@@ -58,9 +59,8 @@ body {
   appearance: none;
   border:none;
   outline: none;
-  padding:5px;
   padding-right:40px;
-  margin:8px;
+  margin-left:10px;
   font-size: small;
   border-right:#ECECEC 1.5px solid;
   background-image: url('../jpg/appearance.jpg');
@@ -69,18 +69,23 @@ body {
   background-size: 15px 13px;
 }
 
-.search-text{
-  border: none;
+.search-icon{
+  content: "";
   outline: none;
-  padding: 5px;
-  padding-right: 40px;
-  padding-left:25px;
-  margin: 8px;
-  margin-left:0px;
+  border:none;
+  width:25px;
+  background: transparent;
   background-image: url('../jpg/search.jpg');
   background-position: left 0px center;
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 25px;
+  margin-left: 10px;
+}
+.search-text{
+  max-width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 5px;
 }
 
 .select-wrap{
@@ -96,6 +101,7 @@ body {
 
 .card {
   width: 24%;
+  height: auto;
   margin-bottom: 30px;
   background-color: #FFFFFF;
   box-shadow: 2px 2px 3px 2px #aaa;
@@ -261,6 +267,9 @@ input[type=password]:focus {
 .small{
   font-size: small;
 }
+.medium{
+  font-size: medium;
+}
 .f-large{
   font-size: large;
 }
@@ -277,6 +286,9 @@ line-height: 40px;
 }
 .lh30 {
   line-height: 30px;
+}
+.lh20{
+  line-height:20px;
 }
 .mt10 {
   margin-top: 10px;
@@ -424,6 +436,7 @@ input:hover+.heart::after{
 .back-btn {
   width: 30px;
   height: 30px;
+  border: none;
   background-color: #FFFFFF;
   border-radius: 5px;
   display: inline-block;
@@ -433,9 +446,10 @@ input:hover+.heart::after{
 .back-btn:after{
   content: "<";
   font-weight: bold;
+  font-size: large;
   position: absolute;
   left:8px;
-  transform: translateY(50%);
+  transform: translateY(-45%);
 }
 
 .reserve-btn{

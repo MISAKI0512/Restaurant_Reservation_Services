@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Shop extends Model
 {
@@ -39,5 +40,21 @@ class Shop extends Model
     public function reservations()
     {
         return $this->hasmany(Reservation::class);
+    }
+
+    public static function doSearch($select_area, $select_genre, $input_text)
+    {
+        $query = self::query();
+        if (!($select_area=="All area")) {
+            $query->where('area_id', '=', "$select_area");
+        }
+        if (!($select_genre=="All genre")){
+            $query->where('genre_id', '=', "$select_genre");
+        }
+        if (!($input_text=="null")) {
+            $query->where('name', 'like binary', "%{$input_text}%");
+        }
+        $results = $query->get();
+        return $results;
     }
 }

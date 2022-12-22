@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="application-name" content="Application">
         <title>Rese</title>
-        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
         @yield('css')
     </head>
     <body>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
 @section('main')
@@ -13,7 +13,8 @@
         </div>
         <h1 class="title ml20">Rese</h1>
       </div>
-    <div class="search">
+    <form action="{{ route('index') }}" method="get" class="search">
+      @csrf
       <div class="select-wrap">
         <select name="area" class="select-css">
           <option hidden>All area</option>
@@ -23,17 +24,18 @@
         </select>
       </div>
       <div class="select-wrap">
-        <select name="genre" class="select-css ml0">
+        <select name="genre" class="select-css ml10">
           <option hidden>All genre</option>
           @foreach($genres as $genre)
           <option value="{{ $genre->id }}">{{ $genre->name }}</option>
           @endforeach
         </select>
       </div>
-      <div class="select-wrap">
-        <input type="text" class="search-text" placeholder="Search…">
+      <div class="flex">
+        <button class="search-icon"></button>
+        <input type="text" name="text" class="search-text" placeholder="Search…">
       </div>
-    </div>
+    </form>
   </nav>
   <div class="shop-index-wrap">
     @foreach($shops as $shop)
@@ -56,3 +58,4 @@
     @endforeach
   </div>
 </div>
+@endsection
