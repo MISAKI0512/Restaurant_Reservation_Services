@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  /*ナビのスタート位置と形状*/
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100vh;
+  /*ナビの高さ*/
+  background: #fff;
+  /*動き*/
+  transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive {
+  left: 0;
+}
+
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list {
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  /*表示する高さ*/
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li {
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a {
+  color: #305DFF;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.open-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #305DFF;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  z-index: 9999;
+  box-shadow: 2px 2px 3px 2px #aaa;
+  cursor: pointer;
+}
+
+/*×に変化*/
+.open-btn span {
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 10px;
+  height: 1px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.open-btn span:nth-of-type(1) {
+  top: 12px;
+  width:25%;
+}
+
+.open-btn span:nth-of-type(2) {
+  top: 20px;
+  width: 50%;
+}
+
+.open-btn span:nth-of-type(3) {
+  top: 28px;
+  width: 12%;
+}
+
+.open-btn:hover span{
+  width:50%;
+}
+
+.open-btn.active span:nth-of-type(1) {
+  top: 14px;
+  left: 10px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 50%
+}
+
+.open-btn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.open-btn.active span:nth-of-type(3) {
+  top: 26px;
+  left: 10px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 50%;
+}
+
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+
+
+small {
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+
+#header {
+  width: 100%;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+section {
+  padding: 100px 30px;
+}
+
+section:nth-child(2n) {
+  background: #f3f3f3;
+}
+
+#footer {
+  background: #333;
+  padding: 20px;
+}

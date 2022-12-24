@@ -2,16 +2,22 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/button.css') }}">
 @endsection
 
 @section('main')
 <div class="container">
   <nav class="nav lh40">
       <div class="flex">
-        <div class="btn">
-          <span class="hamburger"></span>
-        </div>
-        <h1 class="title ml20">Rese</h1>
+        <div class="open-btn"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+          <ul>
+            <li><a href="/">Home</a></li>  
+            <li><a href="/register">Registration</a></li>  
+            <li><a href="/login">Login</a></li>  
+          </ul>
+        </nav>
+      <h1 class="title ml20">Rese</h1>
       </div>
     <form action="{{ route('index') }}" method="get" class="search">
       @csrf
@@ -44,7 +50,7 @@
         <img src="{{ $shop->image_url }}" alt="card">
       </div>
       <div class="card_content">
-        <h2 class="card_content-ttl">{{ $shop->name }}</h2>
+        <p class="card_content-ttl">{{ $shop->name }}</p>
         <span class="card_content_tag">
           <p class="card_content_tag_item">#{{ $shop->area->name }}</p>
           <p class="card_content_tag_item">#{{ $shop->genre->name }}</p>
@@ -58,4 +64,4 @@
     @endforeach
   </div>
 </div>
-@endsection
+@endsection 

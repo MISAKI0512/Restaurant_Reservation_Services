@@ -1,5 +1,10 @@
 a{
   text-decoration: none;
+  color: #FFFFFF;
+}
+h1,
+h2 {
+  text-align:none;
 }
 
 /*--------------枠-------------*/
@@ -31,7 +36,9 @@ body {
 .w100{
   width:100% ;
 }
-
+.w50px{
+  width:50px;
+}
 
 .nav {
   display: flex;
@@ -90,6 +97,7 @@ body {
 
 .select-wrap{
   position: relative;
+  margin:auto 0px;
 }
 
 .shop-index-wrap{
@@ -188,7 +196,7 @@ body {
   line-height:40px;
   padding-left: 20px;
 }
-
+input[type=name],
 input[type=email],
 input[type=password] {
   -webkit-appearance: none;
@@ -206,6 +214,7 @@ input[type=password] {
   border-bottom: 1px solid;
 }
 
+input[type=name]:focus,
 input[type=email]:focus,
 input[type=password]:focus {
   outline: none;
@@ -281,6 +290,13 @@ input[type=password]:focus {
 
 
 /*--------------位置-------------*/
+.m-auto{
+  margin-right: auto;
+  margin-left: auto;
+}
+.text-center{
+  text-align: center;
+}
 .lh40{
 line-height: 40px;
 }
@@ -322,8 +338,19 @@ line-height: 40px;
 .p20{
   padding:20px;
 }
+.plr10{
+  padding-left:10px;
+  padding-right:10px;
+}
 .pt5{
   padding-top:5px;
+}
+
+.pt60{
+  padding-top:60px;
+}
+.pb60 {
+  padding-bottom: 60px;
 }
 
 .justify-between{
@@ -335,7 +362,7 @@ line-height: 40px;
   justify-content:flex-end;
 }
 
-.email-icon {
+.icon {
   width: 30px;
   margin-right: 10px;
 }
@@ -344,51 +371,6 @@ line-height: 40px;
 
 
 /*--------------ボタン-------------*/
-.btn{
-  width:40px;
-  height: 40px;
-  background-color: #305DFF;
-  border-radius: 5px;
-  display: inline-block;
-  position: relative;
-  box-shadow: 2px 2px 3px 2px #aaa;
-}
-
-.hamburger {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  width: 20px;
-  height: 1px;
-  background: #EEEEEE;
-}
-.hamburger::before, .hamburger::after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 5px;
-  height: 1px;
-  background: #EEEEEE;
-}
-.hamburger::before {
-  margin-top: 8px;
-  transition: all 0.2s;
-  }
-
-.hamburger::after {
-  margin-top: -9px;
-  width:10px;
-  transition: all 0.2s;
-}
-
-.btn:hover .hamburger::after,.btn:hover .hamburger::before{
-  width:20px;
-  transition: all 0.2s;
-}
-
 
 input[type=checkbox] {
   display: none;

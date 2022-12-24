@@ -34,8 +34,7 @@ class ShopController extends Controller
                 $genres = Genre::all();
                 $shops = Shop::with('area','genre')->get();
             }
-       
-        
+            
         return view('index', ['user' => $user, 'areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 

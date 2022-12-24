@@ -1,16 +1,23 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/button.css') }}">
 @endsection
 
 @section('main')
 <div class="container">
     <nav class="nav lh40">
         <div class="flex">
-            <div class="btn">
-                <span class="hamburger"></span>
-            </div>
+        <div class="flex">
+            <div class="open-btn"><span></span><span></span><span></span></div>
+            <nav id="g-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>  
+                    <li><a href="/register">Registration</a></li>  
+                    <li><a href="/login">Login</a></li>  
+                </ul>
+            </nav>
             <h1 class="title ml20">Rese</h1>
         </div>
     </nav>
@@ -40,8 +47,8 @@
                                 required autocomplete="current-password" 
                                 placeholder="password" />
             </div>
-            <div class="justify-end mt10">
-                <x-button class="blue-btn w25">
+            <div class="justify-end mt20">
+                <x-button class="blue-btn w30">
                     {{ __('ログイン') }}
             </x-button>
             </div>
