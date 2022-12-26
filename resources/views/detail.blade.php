@@ -2,15 +2,21 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/button.css') }}">
 @endsection
 
 @section('main')
 <div class="container">
   <nav class="nav lh40">
-    <div class="flex">
-      <div class="btn">
-        <span class="hamburger"></span>
-      </div>
+      <div class="flex">
+        <div class="open-btn"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+          <ul>
+            <li><a href="/">Home</a></li>  
+            <li><a href="/register">Registration</a></li>  
+            <li><a href="/login">Login</a></li>  
+          </ul>
+        </nav>
       <h1 class="title ml20">Rese</h1>
     </div>
   </nav>
@@ -43,9 +49,11 @@
           @endfor
         </select>
       </div>
+      @if($reserves->shop_id == $shops->id )
       <div>
-        {{-- 予約があった場合の入力 --}}
+        <p>Shop</p>
       </div>
+      @endif
       <div>
         <button class="reserve-btn">予約する</button>
       </div>

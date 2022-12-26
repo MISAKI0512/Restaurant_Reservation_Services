@@ -22,10 +22,10 @@
         </div>
     </nav>
     <div class="login-wrap">
-        <p class="f-large lh40 text-center bold pt60">会員登録ありがとうございます</p>
+        <p class="f-large lh40 text-center bold pt60">ご予約ありがとうございます</p>
         <div class="mt20 text-center pb60">
-            <button class="blue-btn plr10"><a href="{{ route('login') }}">
-                {{ __('login') }}
+            <button class="blue-btn plr10"><a href="{{ route('index') }}">
+                {{ __('戻る') }}
             </a></button>
         </div>
     </div>

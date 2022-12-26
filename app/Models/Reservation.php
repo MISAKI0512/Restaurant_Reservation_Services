@@ -29,4 +29,12 @@ class Reservation extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function reserveList($shop_id)
+    {
+        $query = self::query();
+        $query->where('shop_id', '=', "$shop_id");
+        $reservelist = $query->get();
+        return $reservelist;
+    }
 }

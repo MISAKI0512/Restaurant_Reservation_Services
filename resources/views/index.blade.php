@@ -12,9 +12,16 @@
         <div class="open-btn"><span></span><span></span><span></span></div>
         <nav id="g-nav">
           <ul>
+            @guest
             <li><a href="/">Home</a></li>  
             <li><a href="/register">Registration</a></li>  
             <li><a href="/login">Login</a></li>  
+            @endguest
+            @auth
+            <li><a href="/">Home</a></li>  
+            <li><a href="/logout">Logout</a></li>  
+            <li><a href="/mypage">Mypage</a></li>  
+            @endauth
           </ul>
         </nav>
       <h1 class="title ml20">Rese</h1>

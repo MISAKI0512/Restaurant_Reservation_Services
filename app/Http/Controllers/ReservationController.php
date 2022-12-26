@@ -20,6 +20,7 @@ class ReservationController extends Controller
         $form['user_id'] = Auth::id();
         $form['start_at']=$start_at;
         $reserve->fill($form)->save();
+        return view('thanks');
     }
 
     public function delete(Request $request)

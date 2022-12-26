@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
+use App\Models\Reservation;
 
 class ShopController extends Controller
 {
@@ -34,13 +35,16 @@ class ShopController extends Controller
                 $genres = Genre::all();
                 $shops = Shop::with('area','genre')->get();
             }
-            
+
         return view('index', ['user' => $user, 'areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 
     public function detail($shop_id)
     {
         $shops = Shop::where('id',$shop_id)->with('area', 'genre')->first();
-        return view('detail', ['shops' => $shops]);
+        $reserves = Reservation::reserveList($shop_id);
+        dd($reserves);
+        //$reserves = $query->where('user_id', '=', $user_id);
+        return view('detail', ['shops' => $shops,'reserves'=> $reserves]);
     }
 }
