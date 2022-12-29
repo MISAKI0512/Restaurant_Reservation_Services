@@ -63,8 +63,10 @@
           <p class="card_content_tag_item">#{{ $shop->genre->name }}</p>
         </span><br>
         <div class="flex justify-between">
-          <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->id]) }}" class="f-c-white">詳しく見る</a></button>
+          <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->id ]) }}" class="f-c-white">詳しく見る</a></button>
+          @auth
           <input type="checkbox" name="like" value="1" id="like"> <label for="like" class="heart"></label>
+          @endauth
         </div>
       </div>
     </div>

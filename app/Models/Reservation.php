@@ -12,10 +12,12 @@ class Reservation extends Model
     protected $guarded = [
         'id'
     ];
+    protected $dates = [
+        'start_at',
+    ];
 
     protected $fillable = [
         'num_of_users',
-        'start_at',
         'user_id',
         'shop_id'
     ];
@@ -30,7 +32,7 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function reserveList($shop_id)
+    public static function getReserveList($shop_id)
     {
         $query = self::query();
         $query->where('shop_id', '=', "$shop_id");

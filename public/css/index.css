@@ -7,6 +7,8 @@ h2 {
   text-align:none;
 }
 
+
+
 /*--------------枠-------------*/
 body {
   background-color: #EEEEEE;
@@ -178,6 +180,11 @@ body {
   position: relative;
 }
 
+.reserves-wrap {
+  background-color: #4D7FFF;
+  border-radius: 10px;
+}
+
 .shop-image img{
   width: 100%;
 }
@@ -271,7 +278,7 @@ input[type=password]:focus {
   font-family:'Segoe UI';
 }
 .shop-title{
-  font-size: 25px;
+  font-size: x-large;
 }
 .small{
   font-size: small;
@@ -285,8 +292,9 @@ input[type=password]:focus {
 .f-c-white{
   color:#FFFFFF;
 }
-
-
+.ls{
+  letter-spacing:0.1em;
+}
 
 
 /*--------------位置-------------*/
@@ -309,6 +317,9 @@ line-height: 40px;
 .mt10 {
   margin-top: 10px;
 }
+.mt15{
+  margin-top: 15px;
+}
 .mt20 {
   margin-top: 20px;
 }
@@ -317,6 +328,9 @@ line-height: 40px;
 }
 .mt40{
   margin-top:40px;
+}
+.mt80{
+  margin-top: 80px;
 }
 .mt100{
   margin-top:100px;
@@ -334,7 +348,13 @@ line-height: 40px;
 .mr10{
   margin-right:10px;
 }
+.mr-10{
+  margin-right: -10px;
+}
 
+.p10 {
+  padding: 10px;
+}
 .p20{
   padding:20px;
 }
@@ -342,15 +362,23 @@ line-height: 40px;
   padding-left:10px;
   padding-right:10px;
 }
+.pl20{
+  padding-left:20px;
+}
+
 .pt5{
   padding-top:5px;
 }
-
 .pt60{
   padding-top:60px;
 }
 .pb60 {
   padding-bottom: 60px;
+}
+
+.ptb10{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .justify-between{
@@ -428,7 +456,7 @@ input:hover+.heart::after{
 .back-btn:after{
   content: "<";
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
   position: absolute;
   left:8px;
   transform: translateY(-45%);

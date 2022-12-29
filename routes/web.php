@@ -6,7 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FavoriteController;
 
 Route::get('/', [ShopController::class, "index"])->name('index');
-Route::get('/detail/{shop_id}', [ShopController::class, "detail"])->name("detail");
+Route::get('/detail/{shop_id}', [ShopController::class, "detail"])->middleware('auth')->name("detail");
 
 Route::post('/reserve',[ReservationController::class,"create"])->name('reserve.create');
 Route::post('/reserve/delete', [ReservationController::class, "delete"])->name('reserve.delete');

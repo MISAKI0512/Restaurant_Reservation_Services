@@ -42,9 +42,9 @@ class ShopController extends Controller
     public function detail($shop_id)
     {
         $shops = Shop::where('id',$shop_id)->with('area', 'genre')->first();
-        $reserves = Reservation::reserveList($shop_id);
-        dd($reserves);
-        //$reserves = $query->where('user_id', '=', $user_id);
+        $reservation = Reservation::getReserveList($shop_id);
+        $user_id = Auth::user()->id;
+        $reserves = $reservation->where('user_id', '=', $user_id);
         return view('detail', ['shops' => $shops,'reserves'=> $reserves]);
     }
 }
