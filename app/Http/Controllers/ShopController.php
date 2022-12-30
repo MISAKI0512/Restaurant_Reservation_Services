@@ -35,7 +35,6 @@ class ShopController extends Controller
                 $genres = Genre::all();
                 $shops = Shop::with('area','genre')->get();
             }
-
         return view('index', ['user' => $user, 'areas' => $areas, 'genres' => $genres, 'shops' => $shops]);
     }
 
@@ -45,6 +44,6 @@ class ShopController extends Controller
         $reservation = Reservation::getReserveList($shop_id);
         $user_id = Auth::user()->id;
         $reserves = $reservation->where('user_id', '=', $user_id);
-        return view('detail', ['shops' => $shops,'reserves'=> $reserves]);
+        return view('detail', ['shops' => $shops,'reserves'=> $reserves,]);
     }
 }

@@ -22,7 +22,7 @@ class Reservation extends Model
         'shop_id'
     ];
 
-    public function shops()
+    public function shop()
     {
         return $this->belongsTo(Shop::class);
     }
@@ -39,4 +39,5 @@ class Reservation extends Model
         $reservelist = $query->get();
         return $reservelist;
     }
+
 }

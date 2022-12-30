@@ -6,19 +6,7 @@
 @endsection
 
 @section('main')
-<div class="container">
-  <nav class="nav lh40">
-      <div class="flex">
-        <div class="open-btn"><span></span><span></span><span></span></div>
-        <nav id="g-nav">
-          <ul>
-            <li><a href="/">Home</a></li>  
-            <li><a href="/register">Registration</a></li>  
-            <li><a href="/login">Login</a></li>  
-          </ul>
-        </nav>
-      <h1 class="title ml20">Rese</h1>
-    </div>
+
   </nav>
   <div class="flex justify-between">
     <div class="detail-wrap">
@@ -40,8 +28,8 @@
       <input type="hidden" name="shop_id" value={{ $shops->id }}>
       <div class="reserve-form">
         <h3 class="shop-title f-c-white mt30">予約</h3>
-        <input type="date" name="date" value="2021-04-01" class="reserve-date mt15 w30"><br>
-        <input type="time" name="time" value="10:00" class="reserve-time mt15" step="1800"><br>
+        <input type="date" name="date" value="{{ date('Y-m-d') }}" class="reserve-date mt15 w30"><br>
+        <input type="time" name="time" value="10:00" class="reserve-time mt15"><br>
         <select name="num_of_users" value="1人" class="reserve-number mt15 w100">
           <option value="1" selected="selected">1人</option>
           @for ($i = 2; $i <= 10; $i++)
@@ -52,20 +40,20 @@
           @foreach($reserves as $reserve)
           <div class="reserves-wrap mt15 ptb10 pl20">
             <div class="flex">
-              <p class="f-c-white lh30 w25">Shop</p>
-              <p class="f-c-white lh30">{{ $shops->name }}</p>
+              <p class="f-c-white small lh20 w25">Shop</p>
+              <p class="f-c-white small lh20">{{ $shops->name }}</p>
             </div>
             <div class="flex">
-              <p class="f-c-white lh30 w25">Date</p>
-              <p class="f-c-white lh30">{{ $reserve->start_at->format('Y/m/d') }}</p>
+              <p class="f-c-white small lh20 w25">Date</p>
+              <p class="f-c-white small lh20">{{ $reserve->start_at->format('Y/m/d') }}</p>
             </div>
             <div class="flex">
-              <p class="f-c-white lh30 w25">Time</p>
-              <p class="f-c-white lh30">{{ $reserve->start_at->format('h:i')}}</p>
+              <p class="f-c-white small lh20 w25">Time</p>
+              <p class="f-c-white small lh20">{{ $reserve->start_at->format('h:i')}}</p>
             </div>
             <div class="flex">
-              <p class="f-c-white lh30 w25">Number</p>
-              <p class="f-c-white lh30">{{ $reserve->num_of_users }}</p>
+              <p class="f-c-white small lh20 w25">Number</p>
+              <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
             </div>
           </div>
           @endforeach

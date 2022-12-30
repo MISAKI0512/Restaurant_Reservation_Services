@@ -9,6 +9,9 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\UserController;
 
 //Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -54,4 +57,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    Route::get('/mypage', [UserController::class, "mypage"])->name('mypage');
+
+    Route::post('/reserve', [ReservationController::class, "create"])->name('reserve.create');
+    Route::post('/reserve/delete', [ReservationController::class, "delete"])->name('reserve.delete');
+
+    Route::get('/favorite', [FavoriteController::class, "create"])->name('favorite.create');
+    Route::post('/favorite/delete', [FavoriteController::class, "delete"])->name('favorite.delete');
 });

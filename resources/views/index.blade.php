@@ -6,26 +6,7 @@
 @endsection
 
 @section('main')
-<div class="container">
-  <nav class="nav lh40">
-      <div class="flex">
-        <div class="open-btn"><span></span><span></span><span></span></div>
-        <nav id="g-nav">
-          <ul>
-            @guest
-            <li><a href="/">Home</a></li>  
-            <li><a href="/register">Registration</a></li>  
-            <li><a href="/login">Login</a></li>  
-            @endguest
-            @auth
-            <li><a href="/">Home</a></li>  
-            <li><a href="/logout">Logout</a></li>  
-            <li><a href="/mypage">Mypage</a></li>  
-            @endauth
-          </ul>
-        </nav>
-      <h1 class="title ml20">Rese</h1>
-      </div>
+
     <form action="{{ route('index') }}" method="get" class="search">
       @csrf
       <div class="select-wrap">
@@ -54,7 +35,7 @@
     @foreach($shops as $shop)
     <div class="card">
       <div class="card_img">
-        <img src="{{ $shop->image_url }}" alt="card">
+        <img src="{{ $shop->image_url }}" alt="shop-photo">
       </div>
       <div class="card_content">
         <p class="card_content-ttl">{{ $shop->name }}</p>

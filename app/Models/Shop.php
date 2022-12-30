@@ -37,7 +37,7 @@ class Shop extends Model
         return $this->hasmany(Like::class);
     }
 
-    public function reservations()
+    public function reservation()
     {
         return $this->hasmany(Reservation::class);
     }

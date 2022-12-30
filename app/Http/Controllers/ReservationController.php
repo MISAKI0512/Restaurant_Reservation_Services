@@ -11,9 +11,6 @@ class ReservationController extends Controller
 {
     public function create(Request $request)
     {
-        //$Datetime= New Datetime;
-        //$datetime=$Datetime->format('Y-m-d H:i');
-        //dd($datetime);
         $reserve = new Reservation;
         $start_at="$request->date"." "."$request->time";
         $form = $this->unsetToken($request);
@@ -25,7 +22,11 @@ class ReservationController extends Controller
 
     public function delete(Request $request)
     {
-
+        $user = Auth::user();
+        $reserve = Reservation::find($request->id);
+        if ($reserve->user_id !== $user->id) return back();
+        $reserve->delete();
+        return back();
     }
 
     public function unsetToken($request)

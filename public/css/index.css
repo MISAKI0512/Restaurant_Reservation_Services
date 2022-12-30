@@ -25,7 +25,12 @@ body {
 .w30{
   width:30%;
 }
-
+.W40{
+  width:40%;
+}
+.w45{
+  width:45%;
+}
 .w50{
   width:50%;
 }
@@ -173,7 +178,6 @@ body {
 .reserve-wrap{
   margin-top:-40px;
   width: 45%;
-  height:90vh;
   background-color: #305DFF;
   border-radius: 10px;
   box-shadow: 2px 2px 3px 2px #aaa;
@@ -181,7 +185,7 @@ body {
 }
 
 .reserves-wrap {
-  background-color: #4D7FFF;
+  background-color: #325CFF;
   border-radius: 10px;
 }
 
@@ -295,6 +299,14 @@ input[type=password]:focus {
 .ls{
   letter-spacing:0.1em;
 }
+.user_name{
+  margin-top:50px;
+  font-size: x-large;
+  text-align: center;
+}
+.bold{
+  font-weight: bold;
+}
 
 
 /*--------------位置-------------*/
@@ -310,6 +322,9 @@ line-height: 40px;
 }
 .lh30 {
   line-height: 30px;
+}
+.lh25 {
+  line-height: 25px;
 }
 .lh20{
   line-height:20px;
@@ -474,5 +489,21 @@ input:hover+.heart::after{
   font-size: large;
 }
 
+.clock-icon{
+  content: "";
+  width:25px;
+}
 
-
+.reserve-delete-icon{
+  content: "";
+  background-image: url(../jpg/x.jpg);
+  width: 25px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  border: none;
+}
+.reserve-delete{
+  width:100%;
+  height:100%;
+  opacity: 0;
+}
