@@ -25,7 +25,7 @@ body {
 .w30{
   width:30%;
 }
-.W40{
+.w40{
   width:40%;
 }
 .w45{
@@ -33,6 +33,9 @@ body {
 }
 .w50{
   width:50%;
+}
+.w60{
+  width: 60%;
 }
 .w80 {
   width: 80%;
@@ -94,6 +97,7 @@ body {
   background-repeat: no-repeat;
   background-size: 25px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .search-text{
   max-width: 100%;
@@ -109,9 +113,15 @@ body {
 
 .shop-index-wrap{
   margin-top:30px;
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap; 
+  display:flex;
   justify-content: space-between;
+}
+.shop-index-wrap:after{
+  content:"";
+  display: block;
+  width:48%;
+  height:0;
 }
 
 .card {
@@ -173,6 +183,12 @@ body {
   margin-top: -40px;
   width:45%;
   height:90vh;
+}
+
+.reservation-wrap{
+  background-color: #4D7FFF;
+  border-radius: 10px;
+  margin-right: 0;
 }
 
 .reserve-wrap{
@@ -415,19 +431,9 @@ line-height: 40px;
 
 /*--------------ボタン-------------*/
 
-input[type=checkbox] {
-  display: none;
+.bg-red{
+  background: red;
 }
-
-/*input:checked+.heart::before, 
-input:checked+.heart::after {
-  background: #FF0000
-}
-input:hover+.heart::before,
-input:hover+.heart::after{
-  background: #FF0000;
-  transition: 0.2s
-}*/
 
 .heart {
   width: 30px;
@@ -436,7 +442,6 @@ input:hover+.heart::after{
   margin-top:20px;
   
 }
-
 .heart::before,
 .heart::after {
   content: "";
@@ -454,6 +459,35 @@ input:hover+.heart::after{
 }
 
 .heart::after {
+  transform: rotate(45deg);
+  right: 14%;
+}
+
+.heart-bg-red{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-top: 20px;
+
+}
+
+.heart-bg-red::before,
+.heart-bg-red::after {
+  content: "";
+  width: 50%;
+  height: 80%;
+  background: red;
+  border-radius: 15px 15px 0 0;
+  display: block;
+  position: absolute;
+}
+
+.heart-bg-red::before {
+  transform: rotate(-45deg);
+  left: 14%;
+}
+
+.heart-bg-red::after {
   transform: rotate(45deg);
   right: 14%;
 }

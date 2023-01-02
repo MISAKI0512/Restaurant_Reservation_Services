@@ -46,7 +46,11 @@
         <div class="flex justify-between">
           <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->id ]) }}" class="f-c-white">詳しく見る</a></button>
           @auth
-          <input type="checkbox" name="like" value="1" id="like"> <label for="like" class="heart"></label>
+            @if($likes->contains($shop->id))
+              <a href="{{ route('favorite.delete',['id'=>$shop->id]) }}" class="heart-bg-red"></a>
+            @else
+              <a href="{{ route('favorite.create',['id'=>$shop->id]) }}" class="heart"></a>
+            @endif
           @endauth
         </div>
       </div>

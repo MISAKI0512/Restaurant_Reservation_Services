@@ -63,6 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/reserve', [ReservationController::class, "create"])->name('reserve.create');
     Route::post('/reserve/delete', [ReservationController::class, "delete"])->name('reserve.delete');
 
-    Route::get('/favorite', [FavoriteController::class, "create"])->name('favorite.create');
-    Route::post('/favorite/delete', [FavoriteController::class, "delete"])->name('favorite.delete');
+    Route::get('/favorite/{id}', [FavoriteController::class, "create"])->name('favorite.create');
+    Route::get('/favorite/delete/{id}', [FavoriteController::class, "delete"])->name('favorite.delete');
 });

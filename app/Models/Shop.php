@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+
 
 class Shop extends Model
 {
@@ -40,6 +40,11 @@ class Shop extends Model
     public function reservation()
     {
         return $this->hasmany(Reservation::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsToy(User::class);
     }
 
     public static function doSearch($select_area, $select_genre, $input_text)

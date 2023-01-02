@@ -38,7 +38,7 @@
         </select>
         @if($reserves->isNotEmpty())
           @foreach($reserves as $reserve)
-          <div class="reserves-wrap mt15 ptb10 pl20">
+          <div class="reservation-wrap mt15 ptb10 pl20">
             <div class="flex">
               <p class="f-c-white small lh20 w25">Shop</p>
               <p class="f-c-white small lh20">{{ $shops->name }}</p>

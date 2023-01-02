@@ -19,7 +19,8 @@ class Reservation extends Model
     protected $fillable = [
         'num_of_users',
         'user_id',
-        'shop_id'
+        'shop_id',
+        'start_at'
     ];
 
     public function shop()
