@@ -48,23 +48,21 @@
     <div class="Favorite_shop_wrap w60">
       <p class="medium bold">お気に入り店舗</p>
       <div class="Favorite_shop">
-        @if(isset($favorite))
-          @foreach($shops as $shop)
-          <div class="card">
+        @if($likes->isNotEmpty())
+          @foreach($likes as $shop)
+          <div class="card_w50">
             <div class="card_img">
-              <img src="{{ $shop->image_url }}" alt="shop-photo">
+              <img src="{{ $shop->shop->image_url }}" alt="shop-photo">
             </div>
             <div class="card_content">
-              <p class="card_content-ttl">{{ $shop->name }}</p>
+              <p class="card_content-ttl">{{ $shop->shop->name }}</p>
               <span class="card_content_tag">
-                <p class="card_content_tag_item">#{{ $shop->area->name }}</p>
-                <p class="card_content_tag_item">#{{ $shop->genre->name }}</p>
+                <p class="card_content_tag_item">#{{ $shop->shop->area->name }}</p>
+                <p class="card_content_tag_item">#{{ $shop->shop->genre->name }}</p>
               </span><br>
               <div class="flex justify-between">
-                <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->id ]) }}" class="f-c-white">詳しく見る</a></button>
-                @auth
-                <input type="checkbox" name="like" value="1" id="like"> <label for="like" class="heart"></label>
-                @endauth
+                <button class="blue-btn w50 mt20" type="submit" ><a href="{{ route('detail',['shop_id'=>$shop->shop->id ]) }}" class="f-c-white">詳しく見る</a></button>
+                <a href="{{ route('favorite.delete',['id'=>$shop->shop->id]) }}" class="heart-bg-red"></a>
               </div>
             </div>
           </div>

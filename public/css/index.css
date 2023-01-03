@@ -115,17 +115,25 @@ body {
   margin-top:30px;
   flex-wrap:wrap; 
   display:flex;
-  justify-content: space-between;
-}
-.shop-index-wrap:after{
-  content:"";
-  display: block;
-  width:48%;
-  height:0;
+  justify-content: flex-start;
 }
 
+
 .card {
-  width: 24%;
+  width: 23.5%;
+  height: auto;
+  margin-bottom: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px 3px 2px #aaa;
+  border-radius: 10px;
+  margin-right: 2%;
+}
+.card:nth-child(4n){
+  margin-right: 0px;
+}
+
+.card_w50 {
+  width: 48%;
   height: auto;
   margin-bottom: 30px;
   background-color: #FFFFFF;
@@ -288,6 +296,22 @@ input[type=password]:focus {
   width:90%;
   margin: 20px auto;
 }
+
+.Favorite_shop {
+  margin-top: 10px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Favorite_shop:after {
+  content: "";
+  display: block;
+  width: 48%;
+  height: 0;
+}
+
+
 
 
 
