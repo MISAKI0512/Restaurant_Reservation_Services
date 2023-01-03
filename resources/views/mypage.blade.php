@@ -14,8 +14,10 @@
       <p class="medium bold">予約状況</p>
         @if($reserves->isNotEmpty())
           @foreach($reserves as $reserve)
-          <div class="reserves-wrap p20 mt10">
-            <div class="flex justify-between">
+          <form action="{{ route('reserve.update') }}" method="post">
+          @csrf
+            <input type="hidden" name="id" value="{{ $reserve->id }}">
+            <div class="reserves-wrap mt10">
               <div class="flex">
                 <img src='../jpg/clock.jpg' class="clock-icon">
                 <p class="f-c-white small lh25 ml20">予約{{ $reserve->id }}</p>
@@ -24,24 +26,27 @@
               @csrf
                 <button class="reserve-delete"></button>
               </form>
+              <div class="flex mt10">
+                <p class="f-c-white small lh20 w25">Shop</p>
+                <p class="f-c-white small lh20">{{ $reserve->shop->name }}</p>
+              </div>
+              <div class="flex">
+                <p class="f-c-white small lh20 w25">Date</p>
+                <input name="date" class="input_blue small lh20" value="{{ $reserve->start_at->format('Y/m/d') }}">
+              </div>
+              <div class="flex">
+                <p class="f-c-white small lh20 w25">Time</p>
+                <input name="time" class="input_blue small lh20" Value="{{ $reserve->start_at->format('h:i')}}">
+              </div>
+              <div class="flex">
+                <p class="f-c-white small lh20 w25">Number</p>
+                <input name="num_of_users" class="input_blue small lh20" Value="{{ $reserve->num_of_users }}">
+              </div>
+              <div class="justify-end">
+                <button class="change-btn">変更</button>
+              </div>
             </div>
-            <div class="flex mt10">
-              <p class="f-c-white small lh20 w25">Shop</p>
-              <p class="f-c-white small lh20">{{ $reserve->shop->name }}</p>
-            </div>
-            <div class="flex">
-              <p class="f-c-white small lh20 w25">Date</p>
-              <p class="f-c-white small lh20">{{ $reserve->start_at->format('Y/m/d') }}</p>
-            </div>
-            <div class="flex">
-              <p class="f-c-white small lh20 w25">Time</p>
-              <p class="f-c-white small lh20">{{ $reserve->start_at->format('h:i')}}</p>
-            </div>
-            <div class="flex">
-              <p class="f-c-white small lh20 w25">Number</p>
-              <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
-            </div>
-          </div>
+          </form>
           @endforeach
         @endif
     </div>
@@ -71,8 +76,5 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
 @endsection

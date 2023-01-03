@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DateTime;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,5 +33,17 @@ class ReservationController extends Controller
         $form = $request->all();
         unset($form['_token']);
         return $form;
+    }
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+        $reserve = Reservation::find($request->id);
+        $start_at = "$request->date" . " " . "$request->time";
+        if ($reserve->user_id !== $user->id) return back();
+        $form = $this->unsetToken($request);
+        $form['start_at'] = $start_at;
+        $reserve->fill($form)->save();
+        return back();
     }
 }
