@@ -19,8 +19,8 @@ class UserController extends Controller
         $areas = Area::orderby('id','asc')->get();
         $genres = Genre::all();
         $shops = Shop::with('area','genre')->get();
-        $reserves = Reservation::with('shop')->get();
-        $likes = Like::with('shop')->get();
+        $reserves = Reservation::with('shop')->where('user_id',$user->id)->get();
+        $likes = Like::with('shop')->where('user_id', $user->id)->get();
         return view('mypage', ['user' => $user, 'areas' => $areas, 'genres' => $genres, 'shops' => $shops, 'reserves' => $reserves, 'likes'=> $likes ]);
     }
 }

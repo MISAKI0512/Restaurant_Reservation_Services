@@ -8,7 +8,6 @@ h2 {
 }
 
 
-
 /*--------------枠-------------*/
 body {
   background-color: #EEEEEE;
@@ -356,6 +355,12 @@ border-bottom:1px solid #fff;
 }
 .bold{
   font-weight: bold;
+}
+
+.error-text{
+  color: red;
+  font-size: small;
+  margin-top: 5px;
 }
 
 

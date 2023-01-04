@@ -14,17 +14,16 @@
         </div>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-        <form method="POST" action="{{ route('login') }} " class="p20">
+        <form method="POST" action="{{ route('login') }} " class="p20" novalidate>
             @csrf
-
             <!-- Email Address -->
             <div class="flex mt20">
                 <img src="{{ asset('jpg/mail.jpg')}}" class="email-icon">
                 <x-input id="email" class="login-input" type="email" name="email" :value="old('email')" required autofocus placeholder="Email"/>
             </div>
-
+            @error('email')
+            <p class="error-text">{{ $message }}</p>
+            @enderror
             <!-- Password -->
             <div class="flex mt20">
                 <img src="{{ asset('jpg/pass.jpg')}}" class="email-icon">
@@ -32,8 +31,11 @@
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" 
-                                placeholder="password" />
+                                placeholder="password"/>
             </div>
+            @error('password')
+            <p class="error-text">{{ $message }}</p>
+            @enderror
             <div class="justify-end mt20">
                 <x-button class="blue-btn w30">
                     {{ __('ログイン') }}
