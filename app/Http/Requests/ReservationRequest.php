@@ -13,7 +13,7 @@ class ReservationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'num_of_users' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'num_of_users.required' => '※人数を入力してください',
+            'date.required' => '※日付を選択してください',
+            'time.required' => '※時間を選択してください',
         ];
     }
 }

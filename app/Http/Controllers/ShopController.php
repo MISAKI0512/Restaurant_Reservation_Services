@@ -9,6 +9,7 @@ use App\Models\Genre;
 use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Like;
+use App\Models\ShopReview;
 
 class ShopController extends Controller
 {
@@ -49,6 +50,20 @@ class ShopController extends Controller
         $reservation = Reservation::getReserveList($shop_id);
         $user_id = Auth::user()->id;
         $reserves = $reservation->where('user_id', '=', $user_id);
-        return view('detail', ['shops' => $shops, 'reserves' => $reserves,]);
+        $reviews = ShopReview::all();
+        return view('detail', ['shops' => $shops, 'reserves' => $reserves,'reviews' => $reviews]);
+    }
+
+    public function review(Request $request)
+    {
+        dd($request);
+        $review= New ShopReview;
+        $form = $this->unsetToken($request);
+        $form['user_id'] = Auth::id();
+        $form['shop_id'] = $request->shop->id;
+        $form['star'] = $request->star;
+        $form['comment'] = $request->comment;
+        $review->fill($form)->save();
+        return  redirect(route('detail'));
     }
 }

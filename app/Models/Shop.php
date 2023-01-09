@@ -42,6 +42,11 @@ class Shop extends Model
         return $this->hasmany(Reservation::class);
     }
 
+    public function ShopReview()
+    {
+        return $this->hasmany(ShopReview::class);
+    }
+
     public function user()
     {
         return $this->belongsToy(User::class);

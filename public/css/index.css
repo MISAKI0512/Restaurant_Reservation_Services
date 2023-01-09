@@ -363,6 +363,10 @@ border-bottom:1px solid #fff;
   margin-top: 5px;
 }
 
+.rem4{
+  width: 4rem;
+}
+
 
 /*--------------位置-------------*/
 .m-auto{
@@ -553,6 +557,7 @@ line-height: 40px;
 .reserve-btn{
   position: absolute;
   bottom:0;
+  left:0;
   width: 100%;
   height:50px;
   border: none;
@@ -591,4 +596,67 @@ line-height: 40px;
 }
 .change-btn:hover{
   font-weight: bold;
+}
+
+.review-btn {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  font-size: small;
+  padding:5px;
+}
+.review-btn:hover {
+  font-weight: bold;
+}
+
+.submit-btn {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  font-size: small;
+  padding: 5px;
+}
+
+.submit-btn:hover {
+  font-weight: bold;
+}
+
+.review-wrap{
+  display: none;
+}
+
+.display{
+  display: block;
+}
+
+.rate-form {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.rate-form input[type=radio] {
+  display: none;
+}
+
+.rate-form label {
+  position: relative;
+  padding: 0 5px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.rate-form label:hover {
+  color: #ffcc00;
+}
+
+.rate-form label:hover~label {
+  color: #ffcc00;
+}
+
+.rate-form input[type=radio]:checked~label {
+  color: #ffcc00;
 }

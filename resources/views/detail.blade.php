@@ -23,46 +23,78 @@
       </div>
       <p class="medium mt20 w100 lh20 ls">{{ $shops->description }}</p>
     </div>
-    <form action="{{ route('reserve.create')}}" class="reserve-wrap" method="post">
+    <form action="{{ route('reserve.create')}}" class="reserve-wrap" method="post" id="reserve">
       @csrf
-      <input type="hidden" name="shop_id" value={{ $shops->id }}>
+      <input type="hidden" name="shop_id" value={{ $shops->id }} form="reserve">
       <div class="reserve-form">
         <h3 class="shop-title f-c-white mt30">予約</h3>
-        <input type="date" name="date" value="{{ date('Y-m-d') }}" class="reserve-date mt15 w30"><br>
-        <input type="time" name="time" value="10:00" class="reserve-time mt15"><br>
-        <select name="num_of_users" value="1人" class="reserve-number mt15 w100">
-          <option value="1" selected="selected">1人</option>
-          @for ($i = 2; $i <= 10; $i++)
+        <input type="date" name="date"  class="reserve-date mt15 w30" form="reserve"><br>
+        @error('date')
+        <p class="error-text">{{ $message }}</p>
+        @enderror
+        <input type="time" name="time"  class="reserve-time mt15" form="reserve"><br>
+        @error('time')
+        <p class="error-text">{{ $message }}</p>
+        @enderror
+        <select name="num_of_users" value="1人" class="reserve-number mt15 w100" form="reserve">
+          <option value="" selected disabled>人数</option>
+          @for ($i = 1; $i <= 10; $i++)
           <option value="{{ $i }}">{{ $i }}人</option>
           @endfor
         </select>
+        @error('num_of_users')
+        <p class="error-text">{{ $message }}</p>
+        @enderror
         @if($reserves->isNotEmpty())
           @foreach($reserves as $reserve)
           <div class="reservation-wrap mt15 ptb10 pl20">
             <div class="flex">
-              <p class="f-c-white small lh20 w25">Shop</p>
+              <p class="f-c-white small lh20 rem4">Shop</p>
               <p class="f-c-white small lh20">{{ $shops->name }}</p>
             </div>
             <div class="flex">
-              <p class="f-c-white small lh20 w25">Date</p>
+              <p class="f-c-white small lh20 rem4">Date</p>
               <p class="f-c-white small lh20">{{ $reserve->start_at->format('Y/m/d') }}</p>
             </div>
             <div class="flex">
-              <p class="f-c-white small lh20 w25">Time</p>
+              <p class="f-c-white small lh20 rem4">Time</p>
               <p class="f-c-white small lh20">{{ $reserve->start_at->format('h:i')}}</p>
             </div>
-            <div class="flex">
-              <p class="f-c-white small lh20 w25">Number</p>
-              <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
+            <div class="flex justify-between">
+              <div class="flex">
+                <p class="f-c-white small lh20 rem4">Number</p>
+                <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
+              </div>
+              <div class="review-btn mr10">評価</div>
+            </div>
+            <div class="review-wrap">
+              <form action="{{ route('review.create')}}"  method="post" id="review">
+              @csrf
+                <p class="f-c-white small lh20">評価</p>
+                <div class="rate-form">
+                  <input id="star5" type="radio" name="star" value="5" form="review">
+                  <label for="star5">★</label>
+                  <input id="star4" type="radio" name="star" value="4" form="review">
+                  <label for="star4">★</label>
+                  <input id="star3" type="radio" name="star" value="3" form="review">
+                  <label for="star3">★</label>
+                  <input id="star2" type="radio" name="star" value="2" form="review">
+                  <label for="star2">★</label>
+                  <input id="star1" type="radio" name="star" value="1" form="review">
+                  <label for="star1">★</label>
+                </div>
+                <p class="f-c-white small lh20">コメント</p>
+                <textarea name="comment" class="w90" form="review"></textarea>
+                <div class="justify-end">
+                  <button class="submit-btn mr10" form="review" type="submit">送信</button>
+                </div>
+              </form>
             </div>
           </div>
           @endforeach
         @endif
-      </div>
-      <div>
-        <button class="reserve-btn">予約する</button>
+        <button class="reserve-btn" form="reserve" type="submit">予約する</button>
       </div>
     </form>
   </div>
-</div>
 @endsection
