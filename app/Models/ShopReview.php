@@ -29,4 +29,12 @@ class ShopReview extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function getReviewList($shop_id)
+    {
+        $query = self::query();
+        $query->where('shop_id', '=', "$shop_id");
+        $reviewList = $query->get();
+        return $reviewList;
+    }
 }

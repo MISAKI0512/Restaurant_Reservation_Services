@@ -50,20 +50,26 @@ class ShopController extends Controller
         $reservation = Reservation::getReserveList($shop_id);
         $user_id = Auth::user()->id;
         $reserves = $reservation->where('user_id', '=', $user_id);
-        $reviews = ShopReview::all();
+        $reviews = ShopReview::getReviewList($shop_id);
         return view('detail', ['shops' => $shops, 'reserves' => $reserves,'reviews' => $reviews]);
     }
 
     public function review(Request $request)
     {
-        dd($request);
         $review= New ShopReview;
         $form = $this->unsetToken($request);
         $form['user_id'] = Auth::id();
-        $form['shop_id'] = $request->shop->id;
+        $form['shop_id'] = $request->shop_id;
         $form['star'] = $request->star;
         $form['comment'] = $request->comment;
         $review->fill($form)->save();
-        return  redirect(route('detail'));
+        return  back();
+    }
+
+    public function unsetToken($request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        return $form;
     }
 }

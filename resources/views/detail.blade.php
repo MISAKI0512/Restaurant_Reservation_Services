@@ -22,8 +22,21 @@
         <p class="medium mr10">#{{ $shops->genre->name }}</p>
       </div>
       <p class="medium mt20 w100 lh20 ls">{{ $shops->description }}</p>
+      <h3 class="mt10">■口コミ</h3>
+      @if($reviews->isNotempty())
+        @foreach($reviews as $review)
+          <div class="reviewlist-wrap">
+            <p class="medium lh20 ls">評価 {{ $review->star }}</p>
+            <p class="medium lh20 ls">コメント</p>
+            <p class="medium lh20 ls under-line">{{ $review->comment }}</p>
+          </div>
+        @endforeach
+      @else
+      <p class="mt10">口コミがありません。</p>
+      @endif
     </div>
-    <form action="{{ route('reserve.create')}}" class="reserve-wrap" method="post" id="reserve">
+    <div class="reserve-wrap">
+      <form  action="{{ route('reserve.create')}}"  method="post" id="reserve"></form>
       @csrf
       <input type="hidden" name="shop_id" value={{ $shops->id }} form="reserve">
       <div class="reserve-form">
@@ -45,7 +58,7 @@
         @error('num_of_users')
         <p class="error-text">{{ $message }}</p>
         @enderror
-        @if($reserves->isNotEmpty())
+        @if(!empty($reserves))
           @foreach($reserves as $reserve)
           <div class="reservation-wrap mt15 ptb10 pl20">
             <div class="flex">
@@ -86,15 +99,16 @@
                 <p class="f-c-white small lh20">コメント</p>
                 <textarea name="comment" class="w90" form="review"></textarea>
                 <div class="justify-end">
-                  <button class="submit-btn mr10" form="review" type="submit">送信</button>
+                  <button type="submit" class="submit-btn mr10" form="review">送信</button>
                 </div>
+                <input type="hidden" name="shop_id" value={{ $shops->id }} form="review">
               </form>
             </div>
           </div>
           @endforeach
         @endif
-        <button class="reserve-btn" form="reserve" type="submit">予約する</button>
+        <button type="submit" class="reserve-btn" form="reserve">予約する</button>
       </div>
-    </form>
+    </div>  
   </div>
 @endsection

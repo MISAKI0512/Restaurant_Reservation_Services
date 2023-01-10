@@ -322,6 +322,10 @@ input[type=password]:focus {
 border-bottom:1px solid #fff;
 }
 
+.reviewlist-wrap{
+  padding: 5px;
+
+}
 
 
 /*--------------テキスト-------------*/
@@ -366,6 +370,11 @@ border-bottom:1px solid #fff;
 .rem4{
   width: 4rem;
 }
+
+.under-line{
+  border-bottom: 1px solid;
+}
+
 
 
 /*--------------位置-------------*/
