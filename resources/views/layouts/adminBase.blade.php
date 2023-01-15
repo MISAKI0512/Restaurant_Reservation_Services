@@ -11,8 +11,27 @@
     </head>
     <body>
         <div class="container">
-            <div class="flex">
-                <h1 class="title">Rese</h1>
-            @yield('main')
+            <nav class="nav lh40">
+                <div class="flex">
+                    <div class="open-btn"><span></span><span></span><span></span></div>
+                    <nav id="g-nav">
+                    <ul>
+                        @guest
+                        <li><a href="/">Home</a></li>   
+                        <li><a href="/login">Login</a></li>  
+                        @endguest
+                        @auth
+                        <li><a href="/">Home</a></li>  
+                        <li><a href="/logout">Logout</a></li>    
+                        @endauth
+                    </ul>
+                    </nav>
+                <h1 class="title ml20">Rese</h1>
+                @yield('admin')
+                </div>
+            </nav>
+        @yield('main')
         </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="{{ asset('/js/button.js') }}"></script>
     </body>

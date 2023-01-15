@@ -6,9 +6,11 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
-@section('main')
+@section('admin')
     <h1 class="ml20 lh40">管理者ページ</h1>
-</div>
+@endsection
+
+@section('main')
     <div class="login-wrap">
         <div class="login-back">
             <p class="f-large f-c-white">店舗登録</p>
