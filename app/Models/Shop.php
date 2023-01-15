@@ -19,7 +19,8 @@ class Shop extends Model
         'description',
         'image_url',
         'area_id',
-        'genre_id'
+        'genre_id',
+        'user_id',
     ];
 
     public function area()
@@ -31,6 +32,7 @@ class Shop extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
 
     public function likes()
     {
@@ -49,7 +51,7 @@ class Shop extends Model
 
     public function user()
     {
-        return $this->belongsToy(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public static function doSearch($select_area, $select_genre, $input_text)
@@ -67,4 +69,15 @@ class Shop extends Model
         $results = $query->get();
         return $results;
     }
+
+    function isSelectedArea($area_id)
+    {
+        return $this->area_id == $area_id ? 'selected' : '';
+    }
+
+    function isSelectedGenre($genre_id)
+    {
+        return $this->genre_id == $genre_id ? 'selected' : '';
+    }
+
 }

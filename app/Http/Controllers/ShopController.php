@@ -72,4 +72,5 @@ class ShopController extends Controller
         unset($form['_token']);
         return $form;
     }
+
 }

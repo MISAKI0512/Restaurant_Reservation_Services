@@ -14,6 +14,8 @@
         </div>
         <form method="POST" action="{{ route('register.store') }}" class="p20" novalidate>
             @csrf
+            <!-- ユーザーrole -->
+            <input type="hidden" name="role" value="0">
 
             <!-- Name -->
             <div class="flex mt20">

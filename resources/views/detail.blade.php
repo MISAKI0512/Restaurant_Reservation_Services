@@ -36,8 +36,7 @@
       @endif
     </div>
     <div class="reserve-wrap">
-      <form  action="{{ route('reserve.create')}}"  method="post" id="reserve"></form>
-      @csrf
+      <form  action="{{ route('reserve.create')}}"  method="post" id="reserve">@csrf</form>
       <input type="hidden" name="shop_id" value={{ $shops->id }} form="reserve">
       <div class="reserve-form">
         <h3 class="shop-title f-c-white mt30">予約</h3>

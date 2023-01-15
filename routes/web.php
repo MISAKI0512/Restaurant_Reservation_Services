@@ -4,12 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\UserController;
 
 
 Route::get('/', [ShopController::class, "index"])->name('index');
 
-Route::middleware('verified')->group(function () {
+Route::middleware('auth','verified')->group(function () {
   Route::get('/detail/{shop_id}', [ShopController::class, "detail"])->name("detail");
   
   Route::get('/mypage', [UserController::class, "mypage"])->name('mypage');
@@ -23,5 +25,15 @@ Route::middleware('verified')->group(function () {
 
   Route::post('/review', [ShopController::class, "review"])->name('review.create');
 });
+
+Route::middleware('auth')->group(function () {
+  Route::get('/admin',[AdminController::class,"index"])->name('admin');
+  Route::post('/admin', [AdminController::class, "create"])->name('admin.create');
+
+  Route::get('/shop_admin', [ShopAdminController::class, "index"])->name('shop_admin');
+  Route::post('/shop_admin/create', [ShopAdminController::class, "create"])->name('shop_admin.create');
+  Route::post('/shop_admin/update', [ShopAdminController::class, "update"])->name('shop_admin.update');
+});
+
 
 require __DIR__ . '/auth.php';
