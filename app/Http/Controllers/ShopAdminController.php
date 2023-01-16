@@ -23,7 +23,7 @@ class ShopAdminController extends Controller
             ->first();
         if(!empty($shops))
         {
-        $reservations=Reservation::where('shop_id',$shops->id)
+            $reservations=Reservation::where('shop_id',$shops->id)
             ->with('user')
             ->get();
             return view('ShopAdmin', ['areas' => $areas, 'genres' => $genres, 'users' => $user,'shops' => $shops,'reservations' => $reservations]);
@@ -36,6 +36,7 @@ class ShopAdminController extends Controller
 
     public function create(Request $request)
     {
+        $this->ImageUpload($request);
         $shop = New Shop;
         $user = Auth::user()->id;
         $form = $this->unsetToken($request);
@@ -46,6 +47,7 @@ class ShopAdminController extends Controller
 
     public function update(Request $request)
     {
+        $this->ImageUpload($request);
         $user = Auth::user();
         $shop = Shop::find($request->id);
         if ($shop->user->id !== $user->id) return back();
@@ -64,5 +66,11 @@ class ShopAdminController extends Controller
         $form = $request->all();
         unset($form['_token']);
         return $form;
+    }
+
+    public function ImageUpload(Request $request)
+    {
+        $file_name = $request->name .= ".jpg";
+        $request->image_url->storeAs('public/shop_image', $file_name);
     }
 }

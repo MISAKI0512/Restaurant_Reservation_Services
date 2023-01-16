@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UploadController;
 
 
 Route::get('/', [ShopController::class, "index"])->name('index');
@@ -35,5 +36,6 @@ Route::middleware('auth')->group(function () {
   Route::post('/shop_admin/update', [ShopAdminController::class, "update"])->name('shop_admin.update');
 });
 
+Route::resource('upload', UploadController::class);
 
 require __DIR__ . '/auth.php';

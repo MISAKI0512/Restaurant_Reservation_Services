@@ -12,7 +12,7 @@
 
 @section('main')
 <h2 class="mt30">登録店舗</h2>
-  <Form class="flex justify-between mt20" id="change" method="post" action="?">
+  <Form class="flex justify-between mt20" id="change" method="post" action="?" enctype="multipart/form-data">
   @csrf
   <table class="mt10">
     <tr>
@@ -53,14 +53,15 @@
     </tr>
     <tr>
       <th>
-        イメージ写真URL
+        イメージ写真
       </th>
       <td>
         @if(!empty($shops))
-          <input type="text" class="w100" name="image_url" value="{{ $shops->image_url }}">
+          <input type="file" class="w100" name="image_url" value="{{ $shops->image_url }}">
         @else
-          <input type="text" class="w100" name="image_url" placeholder="イメージ画像URL">
+          <input type="file" class="w100" name="image_url" placeholder="イメージ画像URL">
         @endif
+        <img src="{{ asset('storage/shop_image/' . $shops->name . '.jpg') }}" class="w50">
       </td>
     </tr>
     <tr>
