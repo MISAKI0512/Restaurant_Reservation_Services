@@ -73,4 +73,6 @@ class ShopAdminController extends Controller
         $file_name = $request->name .= ".jpg";
         $request->image_url->storeAs('public/shop_image', $file_name);
     }
+
+
 }

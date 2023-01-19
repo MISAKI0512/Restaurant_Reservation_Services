@@ -15,7 +15,7 @@
         <h2 class="shop-title ml10 pt5">{{ $shops->name }}</h2>
       </div>
       <div class="shop-image mt20">
-        <img src="{{ $shops->image_url }}" alt="card">
+        <img src="{{ asset('storage/shop_image/' . $shops->name . '.jpg') }}" alt="shop-photo">
       </div>
       <div class="flex shop-tag mt20">
         <p class="medium mr10">#{{ $shops->area->name }}</p>

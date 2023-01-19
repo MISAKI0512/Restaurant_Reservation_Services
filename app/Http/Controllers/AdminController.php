@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 class AdminController extends Controller
 {
@@ -33,4 +35,18 @@ class AdminController extends Controller
         unset($form['_token']);
         return $form;
     }
+
+    public function send(Request $request)
+    {
+        $users=User::all();
+        $title = $request->title;
+        $contents = $request->contents;
+        foreach($users as $user){
+            $name=$user->name;
+            $email=$user->email;
+            Mail::send(new Testmail($name,$email,$title,$contents));
+        }
+                return back();
+        }
 }
+

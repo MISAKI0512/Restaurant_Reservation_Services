@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
-
+use App\Http\Controllers\MailController;
 
 Route::get('/', [ShopController::class, "index"])->name('index');
 
@@ -37,5 +37,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('upload', UploadController::class);
+
+Route::post('/mail/send', [AdminController::class,"send"])->name('mail.send');
 
 require __DIR__ . '/auth.php';

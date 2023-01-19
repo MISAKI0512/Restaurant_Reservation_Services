@@ -42,6 +42,9 @@ body {
 .w90{
   width:90%;
 }
+.w95{
+  width:95%;
+}
 .w100{
   width:100% ;
 }
@@ -628,10 +631,20 @@ line-height: 40px;
   padding: 5px;
 }
 
+.submit-btn-black{
+  background: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: small;
+  padding: 5px;
+}
+
 .submit-btn:hover {
   font-weight: bold;
 }
-
+.submit-btn-black:hover{
+  font-weight: bold;
+}
 .review-wrap{
   display: none;
 }

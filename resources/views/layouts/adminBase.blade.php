@@ -17,11 +17,9 @@
                     <nav id="g-nav">
                     <ul>
                         @guest
-                        <li><a href="/">Home</a></li>   
                         <li><a href="/login">Login</a></li>  
                         @endguest
                         @auth
-                        <li><a href="/">Home</a></li>  
                         <li><a href="/logout">Logout</a></li>    
                         @endauth
                     </ul>
