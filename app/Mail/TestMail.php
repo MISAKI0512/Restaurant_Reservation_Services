@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -37,4 +38,6 @@ class TestMail extends Mailable
                     ->view('mail')
                     ->with(['name' => $this->name,'contents' => $this->contents]);
     }
+
+
 }
