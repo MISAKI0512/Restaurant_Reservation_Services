@@ -89,7 +89,7 @@
         <p class="mt10">店舗が未登録です。</p>
         @endif
     </div>
-    <div class="bold mt20">メール(登録されている全店舗、及び全ユーザーに対してメールを送信します。)</div>
+    <div class="bold mt20">メール(登録している全一般ユーザーに対してメールを送信します。)</div>
     <div class="mail-wrap">
         <form action="{{ route('mail.send')}}"  method="post">
         @csrf

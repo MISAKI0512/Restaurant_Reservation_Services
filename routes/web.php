@@ -9,6 +9,7 @@ use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\MailController;
+use App\Models\Reservation;
 
 Route::get('/', [ShopController::class, "index"])->name('index');
 
@@ -39,5 +40,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('upload', UploadController::class);
 
 Route::post('/mail/send', [AdminController::class,"send"])->name('mail.send');
+
+Route::get('/remind/qr/{user_id}/{shop_id}',[ReservationController::class, "QrCode"])->name('qrcode');
 
 require __DIR__ . '/auth.php';

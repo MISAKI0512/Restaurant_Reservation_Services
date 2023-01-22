@@ -10,11 +10,14 @@ use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Like;
 use App\Models\ShopReview;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ShopController extends Controller
 {
     public function index(Request $request)
     {
+        $url = 'https://google.com';
+        $qr_image = QrCode::size(400)->format('png')->generate('https://google.com');
         if (  //検索の入力確認
             isset($request->area)
             || isset($request->genre)
