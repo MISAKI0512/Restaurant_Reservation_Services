@@ -8,8 +8,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ShopAdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UploadController;
-use App\Http\Controllers\MailController;
-use App\Models\Reservation;
+use App\Http\Controllers\ChargeController;
+
 
 Route::get('/', [ShopController::class, "index"])->name('index');
 
@@ -17,6 +17,8 @@ Route::middleware('auth','verified')->group(function () {
   Route::get('/detail/{shop_id}', [ShopController::class, "detail"])->name("detail");
   
   Route::get('/mypage', [UserController::class, "mypage"])->name('mypage');
+
+  Route::post('/charge', [ChargeController::class,'charge']);
 
   Route::post('/reserve', [ReservationController::class, "create"])->name('reserve.create');
   Route::post('/reserve/delete', [ReservationController::class, "delete"])->name('reserve.delete');
