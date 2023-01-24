@@ -9,8 +9,8 @@
 
   </nav>
   <h2 class="user_name">{{ $user->name }}さん</h2>
-  <div class="flex justify-between mt30">
-    <div class="Reservation_status_wrap w30">
+  <div class="mypage-reserve-wrap">
+    <div class="reservation_status_wrap">
       <p class="medium bold">予約状況</p>
       @if($reserves->isNotEmpty())
         @foreach($reserves as $reserve)
@@ -68,14 +68,14 @@
       <p class="medium mt10">予約情報がありません。</p>
       @endif
     </div>
-    <div class="Favorite_shop_wrap w60">
-      <p class="medium bold">お気に入り店舗</p>
+    <div class="favorite_shop_wrap w60">
+      <p class="favorite_text">お気に入り店舗</p>
       <div class="Favorite_shop">
         @if($likes->isNotEmpty())
           @foreach($likes as $shop)
           <div class="card_w50">
             <div class="card_img">
-              <img src="{{ $shop->shop->image_url }}" alt="shop-photo">
+              <img src="{{ asset('storage/shop_image/' . $shop->shop->name . '.jpg') }}" alt="shop-photo">
             </div>
             <div class="card_content">
               <p class="card_content-ttl">{{ $shop->shop->name }}</p>

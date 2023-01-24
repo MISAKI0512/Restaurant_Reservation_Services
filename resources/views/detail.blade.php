@@ -8,11 +8,11 @@
 @section('main')
 
   </nav>
-  <div class="flex justify-between">
+  <div class="detail-container">
     <div class="detail-wrap">
       <div class="flex mt80">
         <button class="back-btn" onclick="location.href='/'"></button>
-        <h2 class="shop-title ml10 pt5">{{ $shops->name }}</h2>
+        <h2 class="x-large ml10 pt5">{{ $shops->name }}</h2>
       </div>
       <div class="shop-image mt20">
         <img src="{{ asset('storage/shop_image/' . $shops->name . '.jpg') }}" alt="shop-photo">
@@ -39,7 +39,7 @@
       <form  action="{{ route('reserve.create')}}"  method="post" id="reserve">@csrf</form>
       <input type="hidden" name="shop_id" value={{ $shops->id }} form="reserve">
       <div class="reserve-form">
-        <h3 class="shop-title f-c-white mt30">予約</h3>
+        <h3 class="shop-title">予約</h3>
         <input type="date" name="date"  class="reserve-date mt15 w30" form="reserve"><br>
         @error('date')
         <p class="error-text">{{ $message }}</p>
