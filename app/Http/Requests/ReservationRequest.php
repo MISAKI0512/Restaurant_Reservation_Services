@@ -27,6 +27,7 @@ class ReservationRequest extends FormRequest
             'num_of_users' => 'required',
             'date' => 'required',
             'time' => 'required',
+            'course_id' => 'required'
         ];
     }
 
@@ -36,6 +37,7 @@ class ReservationRequest extends FormRequest
             'num_of_users.required' => '※人数を入力してください',
             'date.required' => '※日付を選択してください',
             'time.required' => '※時間を選択してください',
+            'course_id.required' => '※コースを選択してください'
         ];
     }
 }

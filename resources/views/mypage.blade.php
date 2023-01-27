@@ -14,55 +14,43 @@
       <p class="medium bold">予約状況</p>
       @if($reserves->isNotEmpty())
         @foreach($reserves as $reserve)
-        <form action="{{ route('reserve.update') }}" method="post">
-        @csrf
-          <input type="hidden" name="id" value="{{ $reserve->id }}">
+        <form action="{{ route('reserve.update') }}" method="post" id="change">@csrf</form>        
+          <input type="hidden" name="id" value="{{ $reserve->id }}" form="change">
           <div class="reserves-wrap mt10">
-            <div class="flex">
-              <img src='../jpg/clock.jpg' class="clock-icon">
-              <p class="f-c-white small lh25 ml20">予約{{ $loop->iteration }}</p>
+            <div class="flex justify-between">
+              <div class="flex">
+                <img src='../jpg/clock.jpg' class="clock-icon">
+                <p class="f-c-white small lh25 ml20">予約{{ $loop->iteration }}</p>
+              </div>
+              <form action="{{ route('reserve.delete', ['id' => $reserve->id]) }}" method="post"  class="reserve-delete-icon" id="delete">
+              @csrf
+                <button class="reserve-delete" form="delete"></button>
+              </form>
             </div>
-            <form action="{{ route('reserve.delete', ['id' => $reserve->id]) }}" method="post"  class="reserve-delete-icon">
-            @csrf
-              <button class="reserve-delete"></button>
-            </form>
             <div class="flex mt10">
               <p class="f-c-white small lh20 w25">Shop</p>
               <p class="f-c-white small lh20">{{ $reserve->shop->name }}</p>
             </div>
             <div class="flex">
               <p class="f-c-white small lh20 w25">Date</p>
-              <input name="date" class="input_blue small lh20" value="{{ $reserve->start_at->format('Y/m/d') }}">
+              <input name="date" class="input_blue small lh20" value="{{ $reserve->start_at->format('Y/m/d') }}" form="change">
             </div>
             <div class="flex">
               <p class="f-c-white small lh20 w25">Time</p>
-              <input name="time" class="input_blue small lh20" Value="{{ $reserve->start_at->format('h:i')}}">
+              <input name="time" class="input_blue small lh20" Value="{{ $reserve->start_at->format('h:i')}}" form="change">
             </div>
             <div class="flex">
               <p class="f-c-white small lh20 w25">Number</p>
-              <input name="num_of_users" class="input_blue small lh20" Value="{{ $reserve->num_of_users }}">
+              <input name="num_of_users" class="input_blue small lh20" Value="{{ $reserve->num_of_users }}" form="change">
+            </div>
+            <div class="flex">
+              <p class="f-c-white small lh20 w25">Course</p>
+              <input name="course_id" class="input_blue small lh20" Value="{{ $reserve->course->name }}" form="change">
             </div>
             <div class="justify-end">
-              <button class="change-btn">変更</button>
-            </div>
-            <div class="content justify-end mt10">
-                <form action="{{ asset('charge') }}" method="POST">
-                    {{ csrf_field() }}
-                            <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="{{ env('STRIPE_KEY') }}"
-                                    data-amount="1000"
-                                    data-name="Stripe Demo"
-                                    data-label="決済をする"
-                                    data-description="Online course about integrating Stripe"
-                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto"
-                                    data-currency="JPY">
-                            </script>
-                </form>
+              <button class="change-btn" form="change">変更</button>
             </div>
           </div>
-        </form>
         @endforeach
       @else
       <p class="medium mt10">予約情報がありません。</p>

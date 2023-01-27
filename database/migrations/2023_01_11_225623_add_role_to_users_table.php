@@ -15,7 +15,7 @@ class AddRoleToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('role');
-            //role=[null]　ユーザー
+            //role=[0]　ユーザー
             //role=[1]  店舗責任者
             //role=[99] 管理者
         });

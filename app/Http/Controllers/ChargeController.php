@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
+use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
 
 class ChargeController extends Controller
 {
@@ -26,9 +28,23 @@ class ChargeController extends Controller
                 'currency' => 'jpy'
             ));
 
-            return back();
+            $reserve = new Reservation;
+            $start_at = "$request->date" . " " . "$request->time";
+            $form = $this->unsetToken($request);
+            $form['user_id'] = Auth::id();
+            $form['start_at'] = $start_at;
+            $reserve->fill($form)->save();
+            return view('thanks');
+
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }
+    }
+
+    public function unsetToken($request)
+    {
+        $form = $request->all();
+        unset($form['_token']);
+        return $form;
     }
 }

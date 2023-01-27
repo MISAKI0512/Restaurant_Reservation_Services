@@ -10,6 +10,7 @@ use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Like;
 use App\Models\ShopReview;
+use App\Models\ShopsCourse;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ShopController extends Controller
@@ -52,9 +53,10 @@ class ShopController extends Controller
         $shops = Shop::where('id', $shop_id)->with('area', 'genre')->first();
         $reservation = Reservation::getReserveList($shop_id);
         $user_id = Auth::user()->id;
-        $reserves = $reservation->where('user_id', '=', $user_id);
+        $reserves = $reservation->where('user_id', $user_id);
         $reviews = ShopReview::getReviewList($shop_id);
-        return view('detail', ['shops' => $shops, 'reserves' => $reserves,'reviews' => $reviews]);
+        $courses = ShopsCourse::where('shop_id',$shop_id)->with('shop','course')->get();
+        return view('detail', ['shops' => $shops, 'reserves' => $reserves,'reviews' => $reviews,'courses'=>$courses]);
     }
 
     public function review(Request $request)

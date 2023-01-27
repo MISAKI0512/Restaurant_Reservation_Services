@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservation;
+use App\Models\Shop;
+use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReservationRequest;
 
@@ -11,14 +13,13 @@ class ReservationController extends Controller
 {
     public function create(ReservationRequest $request)
     {
-        $reserve = new Reservation;
-        $start_at="$request->date"." "."$request->time";
-        $form = $this->unsetToken($request);
-        $form['user_id'] = Auth::id();
-        $form['start_at']=$start_at;
-        $reserve->fill($form)->save();
-        return view('thanks');
+        $form = $request->all();
+        $form['name']=Shop::where('id',$request->shop_id)->pluck('name')->first();
+        $form['course']=Course::where('id',$request->course_id)->first();
+        $form['price']=$form['course']->price*$form['num_of_users'];
+        return view('payment',['form'=>$form]);
     }
+
 
     public function delete(Request $request)
     {

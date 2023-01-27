@@ -40,21 +40,30 @@
       <input type="hidden" name="shop_id" value={{ $shops->id }} form="reserve">
       <div class="reserve-form">
         <h3 class="shop-title">予約</h3>
-        <input type="date" name="date"  class="reserve-date mt15 w30" form="reserve"><br>
+        <input type="date" name="date"  class="reserve-date mt15 w30" form="reserve" value="{{ old('date') }}"><br>
         @error('date')
         <p class="error-text">{{ $message }}</p>
         @enderror
-        <input type="time" name="time"  class="reserve-time mt15" form="reserve"><br>
+        <input type="time" name="time"  class="reserve-time mt15" form="reserve" value="{{ old('time') }}"><br>
         @error('time')
         <p class="error-text">{{ $message }}</p>
         @enderror
-        <select name="num_of_users" value="1人" class="reserve-number mt15 w100" form="reserve">
+        <select name="num_of_users" class="reserve-number mt15 w100" form="reserve" value="{{ old('num_of_users') }}">
           <option value="" selected disabled>人数</option>
           @for ($i = 1; $i <= 10; $i++)
-          <option value="{{ $i }}">{{ $i }}人</option>
+          <option value="{{ $i }}" @if(old('num_of_users')==$i) selected @endif>{{ $i }}人</option>
           @endfor
         </select>
         @error('num_of_users')
+        <p class="error-text">{{ $message }}</p>
+        @enderror
+        <select name="course_id" class="reserve-number mt15 w100" form="reserve">
+          <option value="" selected disabled>コース名</option>
+          @foreach($courses as $course)
+          <option value="{{ $course->course_id }}" @if(old('course_id')==$course->course_id) selected @endif>{{ $course->course->name}}  {{ $course->course->price}}円</option>
+          @endforeach
+        </select>
+        @error('course_id')
         <p class="error-text">{{ $message }}</p>
         @enderror
         @if(!empty($reserves))
@@ -72,10 +81,14 @@
               <p class="f-c-white small lh20 rem4">Time</p>
               <p class="f-c-white small lh20">{{ $reserve->start_at->format('h:i')}}</p>
             </div>
+            <div class="flex">
+              <p class="f-c-white small lh20 rem4">Number</p>
+              <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
+            </div>
             <div class="flex justify-between">
               <div class="flex">
-                <p class="f-c-white small lh20 rem4">Number</p>
-                <p class="f-c-white small lh20">{{ $reserve->num_of_users }}</p>
+                <p class="f-c-white small lh20 rem4">Course</p>
+                <p class="f-c-white small lh20">{{ $reserve->course->name}}</p>
               </div>
               <div class="review-btn mr10">評価</div>
             </div>

@@ -20,7 +20,8 @@ class Reservation extends Model
         'num_of_users',
         'user_id',
         'shop_id',
-        'start_at'
+        'start_at',
+        'course_id'
     ];
 
     public function shop()
@@ -36,9 +37,14 @@ class Reservation extends Model
     public static function getReserveList($shop_id)
     {
         $query = self::query();
-        $query->where('shop_id', '=', "$shop_id");
+        $query->where('shop_id', '=', "$shop_id")->with('course')->get();
         $reservelist = $query->get();
         return $reservelist;
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
     }
 
 }

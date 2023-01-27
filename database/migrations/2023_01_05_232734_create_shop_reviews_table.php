@@ -15,8 +15,8 @@ class CreateShopReviewsTable extends Migration
     {
         Schema::create('shop_reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('shop_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('shop_id')->constrained()->onDelete('cascade');
             $table->integer('star')->default(0);
             $table->text('comment');
             $table->timestamp('created_at')->useCurrent()->nullable();

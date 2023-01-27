@@ -24,10 +24,10 @@ class CreateUsersTable extends Migration
         });
 
         Schema::table('users', function ($table) {
-            $table->string('stripe_id')->nullable();
+            // $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();
-            $table->timestamp('trial_ends_at')->nullable();
+            // $table->timestamp('trial_ends_at')->nullable();
         });
     }
 

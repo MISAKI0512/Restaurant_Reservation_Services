@@ -18,7 +18,7 @@ Route::middleware('auth','verified')->group(function () {
   
   Route::get('/mypage', [UserController::class, "mypage"])->name('mypage');
 
-  Route::post('/charge', [ChargeController::class,'charge']);
+  Route::post('/charge', [ChargeController::class,'charge'])->name('charge');
 
   Route::post('/reserve', [ReservationController::class, "create"])->name('reserve.create');
   Route::post('/reserve/delete', [ReservationController::class, "delete"])->name('reserve.delete');

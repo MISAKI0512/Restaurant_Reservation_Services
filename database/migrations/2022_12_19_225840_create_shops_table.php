@@ -16,8 +16,8 @@ class CreateShopsTable extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('area_id')->constrained();
-            $table->foreignId('genre_id')->constrained();
+            $table->foreignId('area_id')->constrained()->onDelete('cascade');
+            $table->foreignId('genre_id')->constrained()->onDelete('cascade');
             $table->text('description');
             $table->string('image_url');
             $table->timestamp('created_at')->useCurrent()->nullable();
