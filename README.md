@@ -54,3 +54,5 @@
 - Apache 2.4.54(win64)
 - MySQL Ver 15.1 Distrib 10.4.25-MariaDB, for Win64 (AMD64)
  
+## テーブル仕様
+![table](./README.jpg/テーブル仕様書.jpg)
