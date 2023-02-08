@@ -45,7 +45,13 @@
     - 新規店舗登録
     - 登録店舗一覧表示
     - 登録している全一般ユーザーに対しメール送信
-    
+ 
+## テーブル仕様
+![table](./README.jpg/テーブル仕様書.jpg)
+
+## ER図
+![ER](./README.jpg/ER.jpg)
+
 ## 仕様技術
 - Laravel 8.83.27
 - composer 2.4.2
@@ -53,6 +59,16 @@
 - XAMPP 8.1.10
 - Apache 2.4.54(win64)
 - MySQL Ver 15.1 Distrib 10.4.25-MariaDB, for Win64 (AMD64)
- 
-## テーブル仕様
-![table](./README.jpg/テーブル仕様書.jpg)
+- node.js v18.12.0
+
+# 環境構築
+- XAMPP 8.1.10
+    -  https://sourceforge.net/projects/xampp/files/latest/download
+- composer
+    - https://getcomposer.org/Composer-Setup.exe
+    - Composerインストール後、ターミナルもしくはコマンドプロンプトにて下記コマンド
+    - brew install composer
+    - composer require "laravel/breeze=1.9.0" --dev
+
+- node.js v18.12.0
+    - https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi 
