@@ -67,7 +67,7 @@
   
 - composer
     - https://getcomposer.org/Composer-Setup.exe
-    - Composerインストール後、ターミナルもしくはコマンドプロンプトにて下記コマンド
+    - Composerダウンロード後、ターミナルもしくはコマンドプロンプトにて下記コマンド
     - $ brew install composer
 
 - git clone https://github.com/MISAKI0512/Restaurant_Reservation_Services/archive/refs/heads/main.zip
@@ -76,5 +76,13 @@
     - $ php artisan key:generate
     - $ php artisan migrate:fresh --seed
 
+- mailhog
+    - https://github.com/mailhog/MailHog/releases
+
 - node.js v18.12.0
     - https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi 
+
+# その他
+- 管理者はメールアドレス:admin@example.com  パスワード：passwordにてログイン可能
+- 店舗責任者サンプルはメールアドレス:shopAdmin@example.com パスワード:passwordにてログイン可能
+- 一般ユーザーサンプルはメールアドレス:user@example.com パスワード：passwordにてログイン可能
