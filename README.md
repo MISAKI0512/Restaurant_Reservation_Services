@@ -64,11 +64,17 @@
 # 環境構築
 - XAMPP 8.1.10
     -  https://sourceforge.net/projects/xampp/files/latest/download
+  
 - composer
     - https://getcomposer.org/Composer-Setup.exe
     - Composerインストール後、ターミナルもしくはコマンドプロンプトにて下記コマンド
-    - brew install composer
-    - composer require "laravel/breeze=1.9.0" --dev
+    - $ brew install composer
+
+- git clone https://github.com/MISAKI0512/Restaurant_Reservation_Services/archive/refs/heads/main.zip
+    - $ composer install
+    - .env.exampleを.envにリネーム
+    - $ php artisan key:generate
+    - $ php artisan migrate:fresh --seed
 
 - node.js v18.12.0
     - https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi 
