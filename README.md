@@ -47,10 +47,10 @@
     - 登録している全一般ユーザーに対しメール送信
  
 ## テーブル仕様
-![table](./README.jpg/テーブル仕様書.jpg)
+![table](./テーブル仕様書.jpg)
 
 ## ER図
-![ER](./README.jpg/ER.jpg)
+![ER](./ER.jpg)
 
 ## 仕様技術
 - Laravel 8.83.27
