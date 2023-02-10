@@ -86,7 +86,7 @@
 
 - mailhog
     - https://github.com/mailhog/MailHog/releases
-
+    ※テスト時はmailhogを立ち上げた状態でテストを行ってください。
 - node.js v18.12.0
     - https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi 
 
