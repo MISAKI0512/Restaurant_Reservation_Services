@@ -47,10 +47,18 @@
     - 登録している全一般ユーザーに対しメール送信
  
 ## テーブル仕様
-![table](./README.jpg/テーブル仕様書.jpg)
+![table](./テーブル仕様書.jpg)
 
 ## ER図
-![ER](./README.jpg/ER.jpg)
+![ER](./ER.jpg)
+
+## シーダー
+- AreasTableSeeder：47都道府県記載
+- ShopsTableSeeder：20件のサンプル店舗データ
+- CoursesTableSeeder:どの店舗もコースAコースBコースCを記載
+- GenresTableSeeder:寿司、焼肉、居酒屋、イタリアン、ラーメンを記載
+- UserTableSeeder:管理者、店舗責任者、一般ユーザーのサンプルデータ記載。
+ 　　　　　　　　  ファクトリーにて20件のサンプル店舗データの店舗責任者を記載。
 
 ## 仕様技術
 - Laravel 8.83.27
@@ -78,7 +86,7 @@
 
 - mailhog
     - https://github.com/mailhog/MailHog/releases
-
+    ※テスト時はmailhogを立ち上げた状態でテストを行ってください。
 - node.js v18.12.0
     - https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi 
 
