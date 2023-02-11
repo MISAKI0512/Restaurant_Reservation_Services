@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.logincopy');
+        return view('auth.login');
     }
 
     /**
@@ -35,6 +35,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         
+        //roleが1なら店舗責任者、99なら管理者、それ以外なら一般ユーザー
         if ("$user->role" == "1") {
             return redirect('/shop_admin');
         } elseif ("$user->role" == "99") {

@@ -18,7 +18,7 @@
             @csrf
             <!-- Email Address -->
             <div class="flex mt20">
-                <img src="{{ asset('jpg/mail.jpg')}}" class="email-icon">
+                <img src="{{ asset('jpg/mail icon.jpg')}}" class="email-icon">
                 <x-input id="email" class="login-input" type="email" name="email" :value="old('email')" required autofocus placeholder="Email"/>
             </div>
             @error('email')
@@ -26,7 +26,7 @@
             @enderror
             <!-- Password -->
             <div class="flex mt20">
-                <img src="{{ asset('jpg/pass.jpg')}}" class="email-icon">
+                <img src="{{ asset('jpg/password icon.jpg')}}" class="email-icon">
                 <x-input id="password" class="login-input"
                                 type="password"
                                 name="password"

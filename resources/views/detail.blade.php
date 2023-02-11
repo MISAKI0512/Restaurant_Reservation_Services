@@ -6,7 +6,6 @@
 @endsection
 
 @section('main')
-
   </nav>
   <div class="detail-container">
     <div class="detail-wrap">
@@ -60,15 +59,15 @@
         <select name="course_id" class="reserve-number mt15 w100" form="reserve">
           <option value="" selected disabled>コース名</option>
           @foreach($courses as $course)
-          <option value="{{ $course->course_id }}" @if(old('course_id')==$course->course_id) selected @endif>{{ $course->course->name}}  {{ $course->course->price}}円</option>
+          <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif> {{ $course->name}}  {{ $course->price}}円</option>
           @endforeach
         </select>
         @error('course_id')
         <p class="error-text">{{ $message }}</p>
         @enderror
-        @if(!empty($reserves))
-          @foreach($reserves as $reserve)
-          <div class="reservation-wrap mt15 ptb10 pl20">
+        @if(!empty($reservations))
+          @foreach($reservations as $reserve)
+          <div class="reservation-wrap mt10 ptb10 pl20">
             <div class="flex">
               <p class="f-c-white small lh20 rem4">Shop</p>
               <p class="f-c-white small lh20">{{ $shops->name }}</p>
@@ -90,31 +89,6 @@
                 <p class="f-c-white small lh20 rem4">Course</p>
                 <p class="f-c-white small lh20">{{ $reserve->course->name}}</p>
               </div>
-              <div class="review-btn mr10">評価</div>
-            </div>
-            <div class="review-wrap">
-              <form action="{{ route('review.create')}}"  method="post" id="review">
-              @csrf
-                <p class="f-c-white small lh20">評価</p>
-                <div class="rate-form">
-                  <input id="star5" type="radio" name="star" value="5" form="review">
-                  <label for="star5">★</label>
-                  <input id="star4" type="radio" name="star" value="4" form="review">
-                  <label for="star4">★</label>
-                  <input id="star3" type="radio" name="star" value="3" form="review">
-                  <label for="star3">★</label>
-                  <input id="star2" type="radio" name="star" value="2" form="review">
-                  <label for="star2">★</label>
-                  <input id="star1" type="radio" name="star" value="1" form="review">
-                  <label for="star1">★</label>
-                </div>
-                <p class="f-c-white small lh20">コメント</p>
-                <textarea name="comment" class="w90" form="review"></textarea>
-                <div class="justify-end">
-                  <button type="submit" class="submit-btn mr10" form="review">送信</button>
-                </div>
-                <input type="hidden" name="shop_id" value={{ $shops->id }} form="review">
-              </form>
             </div>
           </div>
           @endforeach

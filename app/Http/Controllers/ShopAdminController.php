@@ -7,9 +7,8 @@ use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
 use App\Models\Reservation;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ShopAdminRequest;
 
 class ShopAdminController extends Controller
 {
@@ -21,43 +20,40 @@ class ShopAdminController extends Controller
         $shops=Shop::where('user_id',$user)
             ->with('area','genre','user')
             ->first();
-        if(!empty($shops))
-        {
-            $reservations=Reservation::where('shop_id',$shops->id)
-            ->with('user')
+        return view('shop_admin.ShopAdmin', ['areas' => $areas, 'genres' => $genres, 'users' => $user, 'shops' => $shops]);
+    }
+
+    public function status()
+    {
+        $user=Auth::user()->id;
+        $shops = Shop::where('user_id', $user)
+        ->first();
+        //現在日時より後の予約を取得
+        $reservations = Reservation::where('shop_id', $shops->id)
+            ->with('user', 'course')
+            ->where('start_at','>', date("Y-m-d H:i:s"))
             ->get();
-            return view('ShopAdmin', ['areas' => $areas, 'genres' => $genres, 'users' => $user,'shops' => $shops,'reservations' => $reservations]);
-        }
-        else
-        {
-            return view('ShopAdmin', ['areas' => $areas, 'genres' => $genres, 'users' => $user, 'shops' => $shops]);
-        }
+        //予約時間が過ぎた予約を取得
+        $reserved = Reservation::where('shop_id', $shops->id)
+            ->with('user', 'course')
+            ->where('start_at', '<', date("Y-m-d H:i:s"))
+            ->get();        
+        return view('shop_admin.ShopAdminStatus', ['reservations' => $reservations,'reserved'=> $reserved  ]);
     }
 
-    public function create(Request $request)
-    {
-        $this->ImageUpload($request);
-        $shop = New Shop;
-        $user = Auth::user()->id;
-        $form = $this->unsetToken($request);
-        $form['user_id']=$user;
-        $shop->fill($form)->save();
-        return  back();
-    }
 
-    public function update(Request $request)
+    public function update(shopAdminRequest $request)
     {
-        $this->ImageUpload($request);
+        if($request->has('image_url'))
+            $this->ImageUpload($request);
         $user = Auth::user();
         $shop = Shop::find($request->id);
         if ($shop->user->id !== $user->id) return back();
         $form = $this->unsetToken($request);
-        $form_user['name']=$request->manager_name;
-        $form_user['email'] = $request->manager_email;
+        $form_user['name']=$request->shop_master_name;
         $shop->fill($form)->save();
         $user->fill($form_user)->save();
-
-        return back();
+        return redirect('shop_admin');
     }
 
 

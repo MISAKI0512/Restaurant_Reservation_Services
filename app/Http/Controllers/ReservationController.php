@@ -39,6 +39,7 @@ class ReservationController extends Controller
 
     public function update(Request $request)
     {
+
         $user = Auth::user();
         $reserve = Reservation::find($request->id);
         $start_at = "$request->date" . " " . "$request->time";
@@ -47,14 +48,5 @@ class ReservationController extends Controller
         $form['start_at'] = $start_at;
         $reserve->fill($form)->save();
         return back();
-    }
-
-    public function QrCode($user_id,$shop_id)
-    {
-        $reservation = Reservation::with('user', 'shop')
-                                    ->where('user_id',$user_id)
-                                    ->where('shop_id',$shop_id)
-                                    ->first();
-        return view('qrcode',['reservation'=>$reservation]);
     }
 }

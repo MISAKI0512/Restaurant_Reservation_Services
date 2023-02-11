@@ -19,24 +19,24 @@
 
             <!-- Name -->
             <div class="flex mt20">
-                <img src="{{ asset('jpg/user.jpg')}}" class="icon">
-                <input class="login-input " type="name" name="name" :value="old('name')" required autofocus placeholder="Username"/>
+                <img src="{{ asset('jpg/user icon.jpg')}}" class="icon">
+                <input class="login-input " type="name" name="name" value="{{  old('name') }}" required autofocus placeholder="Username"/>
             </div>
             @error('name')
             <p class="error-text">{{ $message }}</p>
             @enderror
             <!-- Email Address -->
             <div class="flex mt20">
-                <img src="{{ asset('jpg/mail.jpg')}}" class="icon">
-                <input class="login-input" type="email" name="email" :value="old('email')" required placeholder="Email"/>
+                <img src="{{ asset('jpg/mail icon.jpg')}}" class="icon">
+                <input class="login-input" type="email" name="email" value="{{  old('email') }}" required placeholder="Email"/>
             </div>
             @error('email')
             <p class="error-text">{{ $message }}</p>
             @enderror
             <!-- Password -->
             <div class="flex mt20">
-                <img src="{{ asset('jpg/pass.jpg')}}" class="icon">
-                <input  class="login-input" type="password" name="password" :value="old('password')" required autocomplete="new-password" placeholder="Password"/>
+                <img src="{{ asset('jpg/password icon.jpg')}}" class="icon">
+                <input  class="login-input" type="password" name="password"   required autocomplete="new-password" placeholder="Password"/>
             </div>
             @error('password')
             <p class="error-text">{{ $message }}</p>

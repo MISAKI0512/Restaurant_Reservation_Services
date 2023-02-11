@@ -80,9 +80,9 @@ class Shop extends Model
         return $this->genre_id == $genre_id ? 'selected' : '';
     }
 
-    public function shopsCourses()
+    public function Courses()
     {
-        return $this->hasmany(ShopsCourses::class);
+        return $this->belongsto(Course::class);
     }
 
 }

@@ -94,7 +94,7 @@ body {
   margin-left:10px;
   font-size: small;
   border-right:#ECECEC 1.5px solid;
-  background-image: url('../jpg/appearance.jpg');
+  background-image: url('../jpg/appearance icon.jpg');
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 15px 13px;
@@ -110,7 +110,7 @@ body {
   border:none;
   width:25px;
   background: transparent;
-  background-image: url('../jpg/search.jpg');
+  background-image: url('../jpg/search icon.jpg');
   background-position: left 0px center;
   background-repeat: no-repeat;
   background-size: 25px;
@@ -173,12 +173,14 @@ body {
     width:100%;
 }}
 
+
 .card_img img{
   width: 100%;
   height:50%;
-  object-fit: cover;
   border-radius: 10px 10px 0 0 ;
+  object-fit: cover;
 }
+
 
 .card_content {
   padding: 15px 25px;
@@ -324,7 +326,7 @@ input[type=password]:focus {
   border: none;
   padding: 5px;
   margin-right: 0px;
-  background-image: url('../jpg/appearance.jpg');
+  background-image: url('../jpg/appearance icon.jpg');
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 15px 13px;
@@ -342,7 +344,7 @@ input[type=password]:focus {
   border: none;
   padding: 5px;
   margin-right: 0px;
-  background-image: url('../jpg/appearance.jpg');
+  background-image: url('../jpg/appearance icon.jpg');
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 15px 13px;
@@ -446,7 +448,7 @@ border-bottom:1px solid #fff;
 .user_name{
   margin-top:50px;
   font-size: x-large;
-  text-align: center;
+  text-align: left;
 }
 .bold{
   font-weight: bold;
@@ -461,7 +463,9 @@ border-bottom:1px solid #fff;
 .rem4{
   width: 4rem;
 }
-
+.rem5 {
+  width: 5rem;
+}
 .under-line{
   border-bottom: 1px solid;
 }
@@ -475,6 +479,9 @@ border-bottom:1px solid #fff;
   margin-top:20px;
 }}
 
+.red{
+  color: red;
+}
 
 
 /*--------------位置-------------*/
@@ -694,7 +701,7 @@ line-height: 40px;
 
 .reserve-delete-icon{
   content: "";
-  background-image: url(../jpg/x.jpg);
+  background-image: url(../jpg/x button.jpg);
   width: 25px;
   background-size: 25px 25px;
   background-repeat: no-repeat;
@@ -729,6 +736,7 @@ line-height: 40px;
   font-weight: bold;
 }
 
+
 .submit-btn {
   background: none;
   color: #fff;
@@ -751,9 +759,6 @@ line-height: 40px;
 }
 .submit-btn-black:hover{
   font-weight: bold;
-}
-.review-wrap{
-  display: none;
 }
 
 .display{

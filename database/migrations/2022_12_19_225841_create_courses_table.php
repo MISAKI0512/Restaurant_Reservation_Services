@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->timestamps();
+            $table->foreignId('shop_id')->constrained()->onDelete('cascade');
         });
     }
 

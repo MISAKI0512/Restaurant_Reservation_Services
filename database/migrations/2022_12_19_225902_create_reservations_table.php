@@ -21,7 +21,7 @@ class CreateReservationsTable extends Migration
             $table->datetime('start_at');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
-        });
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');        });
     }
     /**
      * Reverse the migrations.

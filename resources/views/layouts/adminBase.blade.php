@@ -20,6 +20,9 @@
                         <li><a href="/login">Login</a></li>  
                         @endguest
                         @auth
+                        <li><a href="/admin">Admin-HOME</a></li> 
+                        <li><a href="/admin/register">New Register</a></li> 
+                        <li><a href="/admin/index">Shop Index</a></li> 
                         <li><a href="/logout">Logout</a></li>    
                         @endauth
                     </ul>

@@ -8,25 +8,43 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use App\Http\Requests\shopRegisterRequest;
 
 class AdminController extends Controller
 {
+    public function admin()
+    {
+        return view('admin.admin');
+    }
+    
     public function index()
     {
         $shop_owners= Shop::with('area', 'genre','user')->get();
-        return view('admin', ['shop_owners'=>$shop_owners]);
+        return view('admin.admin-index', ['shop_owners'=>$shop_owners]);
     }
 
-    public function create(Request $request)
+    public function register()
+    {
+        return view('admin.admin-register');
+    }
+
+    public function create(shopRegisterRequest $request)
     {
         $user = new User;
         $form = $this->unsetToken($request);
-        $form['name'] = $request->name;
+        $form['name'] = $request->shop_master_name;
         $form['email'] = $request->email;
         $form['password'] = Hash::make($request->password);
         $form['role']=$request->role;
         $user->fill($form)->save();
-        return  back();
+
+        $shop = new Shop;
+        $form_shop['name'] = $request->name;
+        $form_shop['area_id']="1";
+        $form_shop['genre_id'] = "1";
+        $form_shop['user_id'] = $user->id;
+        $shop->fill($form_shop)->save();
+        return  view('shopRegisterThanks');
     }
 
     public function unsetToken($request)
@@ -47,6 +65,6 @@ class AdminController extends Controller
             Mail::send(new Testmail($name,$email,$title,$contents));
         }
                 return back();
-        }
+    }
 }
 

@@ -17,3 +17,25 @@ table{
   width: 100%;
 }
 
+.block{
+  display: block;
+}
+
+.bottom-step{
+  border-bottom: none;
+  height:20px;
+}
+
+.flex-end{
+  display: flex;
+  justify-content: end;
+}
+
+.shop-btn{
+  width:4rem;
+  height:2rem;
+}
+
+.text-center{
+  vertical-align:middle;
+}

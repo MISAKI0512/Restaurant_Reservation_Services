@@ -44,10 +44,8 @@ class reminder extends Command
         foreach ($reservations as $reservation) {
             $reservationTime = $reservation->start_at->format('Y-m-d');
             //予約の日付と同じ日の場合はメール送信
-            if ($reservationTime == date("Y-m-28")) {
+            if ($reservationTime == date("Y-m-d")) {
                 Mail::send(new RemindMail($reservation));
-            } else {
-                break;
             }
         }
     }

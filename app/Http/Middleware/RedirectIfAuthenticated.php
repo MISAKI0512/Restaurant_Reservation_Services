@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return view('auth.logincopy');
+                return view('auth.login');
             }
         }
 

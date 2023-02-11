@@ -17,21 +17,21 @@
                     <nav id="g-nav">
                         <ul>
                             @guest
-                            <li><a href="/">Home</a></li>  
-                            <li><a href="/register">Registration</a></li>  
                             <li><a href="/login">Login</a></li>  
                             @endguest
                             @auth
-                            <li><a href="/">Home</a></li>  
-                            <li><a href="/logout">Logout</a></li>  
-                            <li><a href="/mypage">Mypage</a></li>  
+                            <li><a href="/shop_admin">Shop_Admin-HOME</a></li> 
+                            <li><a href="/shop_admin/status">Reservation status</a></li> 
+                            <li><a href="/logout">Logout</a></li>    
                             @endauth
                         </ul>
                     </nav>
                     <h1 class="title ml20">Rese</h1>
+                @yield('admin')
                 </div>
+            </nav>
         @yield('main')
+        </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="{{ asset('/js/button.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </body>

@@ -16,11 +16,12 @@ class Course extends Model
     protected $fillable = [
         'name',
         'price',
+        'shop_id',
     ];
 
-    public function shopsCourse()
+    public function shop()
     {
-        return $this->hasmany(ShopsCourse::class);
+        return $this->hasmany(Shop::class);
     }
 
     public function reservations()

@@ -22,6 +22,7 @@ class CreateShopsTable extends Migration
             $table->string('image_url');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

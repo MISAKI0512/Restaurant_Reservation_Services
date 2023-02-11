@@ -10,15 +10,13 @@ use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Like;
 use App\Models\ShopReview;
-use App\Models\ShopsCourse;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Models\Course;
+use App\Http\Requests\ReviewRequest;
 
 class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $url = 'https://google.com';
-        $qr_image = QrCode::size(400)->format('png')->generate('https://google.com');
         if (  //検索の入力確認
             isset($request->area)
             || isset($request->genre)
@@ -51,15 +49,19 @@ class ShopController extends Controller
     public function detail($shop_id)
     {
         $shops = Shop::where('id', $shop_id)->with('area', 'genre')->first();
-        $reservation = Reservation::getReserveList($shop_id);
         $user_id = Auth::user()->id;
-        $reserves = $reservation->where('user_id', $user_id);
+        //現在日時より後の予約のみ取得
+        $reservations = Reservation::where('user_id', $user_id)
+            ->where('shop_id',$shop_id)
+            ->with('user', 'course')
+            ->where('start_at', '>', date("Y-m-d H:i:s"))
+            ->get();
         $reviews = ShopReview::getReviewList($shop_id);
-        $courses = ShopsCourse::where('shop_id',$shop_id)->with('shop','course')->get();
-        return view('detail', ['shops' => $shops, 'reserves' => $reserves,'reviews' => $reviews,'courses'=>$courses]);
+        $courses = Course::where('shop_id',$shop_id)->get();
+        return view('detail', ['shops' => $shops, 'reservations' => $reservations,'reviews' => $reviews,'courses'=>$courses]);
     }
 
-    public function review(Request $request)
+    public function review(ReviewRequest $request)
     {
         $review= New ShopReview;
         $form = $this->unsetToken($request);
