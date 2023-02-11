@@ -42,7 +42,7 @@ class ShopAdminController extends Controller
     }
 
 
-    public function update(shopAdminRequest $request)
+    public function update(ShopAdminRequest $request)
     {
         if($request->has('image_url'))
             $this->ImageUpload($request);

@@ -8,7 +8,7 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
-use App\Http\Requests\shopRegisterRequest;
+use App\Http\Requests\ShopRegisterRequest;
 
 class AdminController extends Controller
 {
@@ -28,7 +28,7 @@ class AdminController extends Controller
         return view('admin.admin-register');
     }
 
-    public function create(shopRegisterRequest $request)
+    public function create(ShopRegisterRequest $request)
     {
         $user = new User;
         $form = $this->unsetToken($request);
