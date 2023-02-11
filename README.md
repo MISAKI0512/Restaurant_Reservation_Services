@@ -57,8 +57,7 @@
 - ShopsTableSeeder：20件のサンプル店舗データ
 - CoursesTableSeeder:どの店舗もコースAコースBコースCを記載
 - GenresTableSeeder:寿司、焼肉、居酒屋、イタリアン、ラーメンを記載
-- UserTableSeeder:管理者、店舗責任者、一般ユーザーのサンプルデータ記載。
- 　　　　　　　　  ファクトリーにて20件のサンプル店舗データの店舗責任者を記載。
+- UserTableSeeder:管理者、店舗責任者、一般ユーザーのサンプルデータ記載。ファクトリーにて20件のサンプル店舗データの店舗責任者を記載。
 
 ## 仕様技術
 - Laravel 8.83.27
