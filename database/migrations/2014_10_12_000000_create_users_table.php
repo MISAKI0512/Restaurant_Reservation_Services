@@ -22,9 +22,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('role');
-            //role=[0]　ユーザー
-            //role=[1]  店舗責任者
-            //role=[99] 管理者
         });
 
         Schema::table('users', function ($table) {
