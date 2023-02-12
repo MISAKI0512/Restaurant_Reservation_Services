@@ -78,6 +78,7 @@
     - $ brew install composer
 
 - git clone https://github.com/MISAKI0512/Restaurant_Reservation_Services/archive/refs/heads/main.zip
+    - $ php artisan:storage link
     - $ composer install
     - .env.exampleを.envにリネーム
     - $ php artisan key:generate
