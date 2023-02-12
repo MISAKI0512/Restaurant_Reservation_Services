@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\TestMail;
 use App\Http\Requests\ShopRegisterRequest;
 
@@ -44,7 +46,13 @@ class AdminController extends Controller
         $form_shop['genre_id'] = "1";
         $form_shop['user_id'] = $user->id;
         $shop->fill($form_shop)->save();
+
+        event(new Registered($user));
+
+        Auth::login($user);
+
         return  view('shopRegisterThanks');
+
     }
 
     public function unsetToken($request)

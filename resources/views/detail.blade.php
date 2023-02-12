@@ -41,11 +41,11 @@
         <h3 class="shop-title">予約</h3>
         <input type="date" name="date"  class="reserve-date mt15 w30" form="reserve" value="{{ old('date') }}"><br>
         @error('date')
-        <p class="error-text">{{ $message }}</p>
+        <p class="error-text-w">{{ $message }}</p>
         @enderror
         <input type="time" name="time"  class="reserve-time mt15" form="reserve" value="{{ old('time') }}"><br>
         @error('time')
-        <p class="error-text">{{ $message }}</p>
+        <p class="error-text-w">{{ $message }}</p>
         @enderror
         <select name="num_of_users" class="reserve-number mt15 w100" form="reserve" value="{{ old('num_of_users') }}">
           <option value="" selected disabled>人数</option>
@@ -54,7 +54,7 @@
           @endfor
         </select>
         @error('num_of_users')
-        <p class="error-text">{{ $message }}</p>
+        <p class="error-text-w">{{ $message }}</p>
         @enderror
         <select name="course_id" class="reserve-number mt15 w100" form="reserve">
           <option value="" selected disabled>コース名</option>
@@ -64,7 +64,7 @@
           @endforeach
         </select>
         @error('course_id')
-        <p class="error-text">{{ $message }}</p>
+        <p class="error-text-w">{{ $message }}</p>
         @enderror
         @if(!empty($reservations))
           @foreach($reservations as $reserve)

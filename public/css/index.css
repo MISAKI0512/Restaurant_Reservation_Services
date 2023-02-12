@@ -350,8 +350,6 @@ input[type=password]:focus {
   background-size: 15px 13px;
 }
 
-
-
 .reserve-form{
   width:90%;
   margin: 20px auto;
@@ -456,6 +454,12 @@ border-bottom:1px solid #fff;
 
 .error-text{
   color: red;
+  font-size: small;
+  margin-top: 5px;
+}
+
+.error-text-w {
+  color: white;
   font-size: small;
   margin-top: 5px;
 }
