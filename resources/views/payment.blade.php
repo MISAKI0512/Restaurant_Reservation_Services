@@ -43,9 +43,14 @@
                     予約コース
                 </th>
                 <td>
+                    @if($form['course']==null) 
+                    席のみ予約
+                    @else
                     {{ $form['course']->name }}
+                    @endif
                 </td>
             </tr>
+            @if($form['course']!=null) 
             <tr>
                 <th>
                     合計金額
@@ -54,20 +59,25 @@
                     &yen;{{ $form['price'] }}
                 </td>
             </tr>
+            @endif
         </table>
         <div class="flex justify-between">
             <button type="button" onClick="history.back()" class="change-btn ml10" >修正する</button>
+            @if($form['course']!=null) 
             <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="{{ env('STRIPE_KEY') }}"
-                data-amount="{{ $form['price'] }}"
-                data-name="Stripe Demo"
-                data-label="決済をする"
-                data-description="Online course about integrating Stripe"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto"
-                data-currency="JPY">
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ env('STRIPE_KEY') }}"
+            data-amount="{{ $form['price'] }}"
+            data-name="Stripe Demo"
+            data-label="決済をする"
+            data-description="Online course about integrating Stripe"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="JPY">
             </script>
+            @else
+            <button type="submit" class="change-btn ml10" >予約する</button>
+            @endif
         </div>
         <input type="hidden" name="shop_id" value="{{ $form['shop_id'] }}">
         <input type="hidden" name="num_of_users" value="{{ $form['num_of_users'] }}">

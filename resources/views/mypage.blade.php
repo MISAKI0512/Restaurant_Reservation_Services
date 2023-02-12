@@ -44,7 +44,11 @@
         </div>
         <div class="flex">
           <p class="f-c-white small lh20 w25">Course</p>
+          @if($reservation->course_id==null)
+          <p class="f-c-white small lh20">席のみ予約</p>
+          @else
           <p class="f-c-white small lh20">{{ $reservation->course->name }}</p>
+          @endif
         </div>
         <div class="justify-end">
           <button class="change-btn" form="change">変更</button>
@@ -82,7 +86,11 @@
         </div>
         <div class="flex">
           <p class="f-c-white small lh20 w25">Course</p>
+          @if($reserve->course_id==null)
+          <p class="f-c-white small lh20">席のみ予約</p>
+          @else
           <p class="f-c-white small lh20">{{ $reserve->course->name }}</p>
+          @endif
         </div>
         <div class="review-wrap">
           <form action="{{ route('review.create')}}"  method="post" id="review {{ $loop->iteration }}">

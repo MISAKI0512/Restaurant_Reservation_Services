@@ -58,6 +58,7 @@
         @enderror
         <select name="course_id" class="reserve-number mt15 w100" form="reserve">
           <option value="" selected disabled>コース名</option>
+          <option value="0">席のみ予約</option>
           @foreach($courses as $course)
           <option value="{{ $course->id }}" @if(old('course_id')==$course->id) selected @endif> {{ $course->name}}  {{ $course->price}}円</option>
           @endforeach

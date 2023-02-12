@@ -14,12 +14,15 @@ class ReservationController extends Controller
     public function create(ReservationRequest $request)
     {
         $form = $request->all();
-        $form['name']=Shop::where('id',$request->shop_id)->pluck('name')->first();
-        $form['course']=Course::where('id',$request->course_id)->first();
-        $form['price']=$form['course']->price*$form['num_of_users'];
-        return view('payment',['form'=>$form]);
+        $form['name'] = Shop::where('id', $request->shop_id)->pluck('name')->first();
+        $form['course'] = Course::where('id', $request->course_id)->first();
+        if ($request->course_id == 0) {
+            $form['price'] = 0;
+        }else{
+        $form['price'] = $form['course']->price * $form['num_of_users'];
+        }
+        return view('payment', ['form' => $form]);
     }
-
 
     public function delete(Request $request)
     {

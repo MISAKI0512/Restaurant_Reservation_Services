@@ -14,6 +14,17 @@ class ChargeController extends Controller
     /*単発決済用のコード*/
     public function charge(Request $request)
     {
+        if($request->course_id ==0){
+            $reserve = new Reservation;
+            $start_at = "$request->date" . " " . "$request->time";
+            $form = $this->unsetToken($request);
+            $form['user_id'] = Auth::id();
+            $form['start_at'] = $start_at;
+            $form['course_id'] = null;
+            $reserve->fill($form)->save();
+            
+            return view('thanks');
+        }
         try {
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
@@ -27,7 +38,7 @@ class ChargeController extends Controller
                 'amount' => 1000,
                 'currency' => 'jpy'
             ));
-
+            
             $reserve = new Reservation;
             $start_at = "$request->date" . " " . "$request->time";
             $form = $this->unsetToken($request);

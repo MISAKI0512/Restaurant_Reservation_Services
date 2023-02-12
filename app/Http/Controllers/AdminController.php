@@ -56,7 +56,7 @@ class AdminController extends Controller
 
     public function send(Request $request)
     {
-        $users=User::where('role','0')->get(); //一般ユーザーのみ取得
+        $users=User::where('role','0')->get(); 
         $title = $request->title;
         $contents = $request->contents;
         foreach($users as $user){
